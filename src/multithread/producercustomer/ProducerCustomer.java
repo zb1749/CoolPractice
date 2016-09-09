@@ -1,4 +1,4 @@
-package multiThread.producercustomer;
+package multithread.producercustomer;
 
 /**
  * Producer-Consumer pattern in Java using the {@link java.util.concurrent
@@ -11,7 +11,7 @@ import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BlockingQueue;
 
 
-public class Producercustomer {
+public class ProducerCustomer {
 
     private static BlockingQueue<Integer> queue = new ArrayBlockingQueue<Integer>(10);
 

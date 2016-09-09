@@ -1,4 +1,4 @@
-package multiThread.deadlock;
+package multithread.deadlock;
 
 /**
  *死锁的必要条件是锁嵌套,然后两个线程互相占用被等待的锁
