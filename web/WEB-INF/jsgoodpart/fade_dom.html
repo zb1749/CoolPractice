@@ -4,25 +4,37 @@
     <meta charset="UTF-8">
     <title>fade</title>
 </head>
-<script>
+<!--<script type="text/javascript" src='<s:url value="/lib/js/jquery-3.1.0.js"/>'></script>-->
+<script type="text/javascript">
+//注意javascript和html dom按顺序加载
+
     var fade = function(node){
+        debugger;
         var level = 1;
         var step = function(){
             var hex = level.toString(16);
             node.style.backgroundColor = '#FFFF' + hex + hex;
             if(level<15){
                 level += 1;
-                setTimeout(step, 100);
+                //alert("level"+level);
+                setTimeout(step, 1000);
             }
-            setTimeout(step, 100);
+            setTimeout(step, 1000);
         }
-        setTimeout(step, 100);
+        setTimeout(step, 1000);
     }
-    fade(document.body);
+
+    //window.ready(fade(document.body));
+
 </script>
 <body>
 
-<p>12345</p>
+<p id="number">12345</p>
 
 </body>
+<script type="text/javascript">
+
+    fade(document.body);
+
+</script>
 </html>

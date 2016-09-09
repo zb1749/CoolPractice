@@ -23,6 +23,9 @@
     <facet type="Spring" name="Spring">
       <configuration />
     </facet>
+    <facet type="AspectJ" name="AspectJ">
+      <configuration />
+    </facet>
   </component>
   <component name="NewModuleRootManager" inherit-compiler-output="true">
     <exclude-output />
@@ -34,5 +37,6 @@
     <orderEntry type="library" name="Hibernate 4.2.2-4.2.2" level="project" />
     <orderEntry type="library" name="Spring-4.3.1.RELEASE" level="project" />
     <orderEntry type="library" name="Spring MVC-4.3.1.RELEASE" level="project" />
+    <orderEntry type="library" name="lib" level="project" />
   </component>
 </module>
