@@ -1,0 +1,36 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>generate serial</title>
+</head>
+<script type="text/javascript">
+    var serial_maker = function(){
+        var prefix = '';
+        var seq = 0;
+        return{
+            set_prefix:function (p) {
+                prefix = String(p);
+            },
+            set_seq:function (s) {
+                seq = s;
+            },
+            gensym:function () {
+                var result = prefix + seq;
+                seq += 1;
+                return result;
+            }
+        };
+    };
+
+    var seqer = serial_maker();
+    seqer.set_prefix('Q');
+    seqer.set_seq(1000);
+    var unique = seqer.gensym();
+
+    document.writeln(unique);
+</script>
+<body>
+
+</body>
+</html>

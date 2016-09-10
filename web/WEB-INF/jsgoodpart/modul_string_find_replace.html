@@ -1,0 +1,35 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>find and replace</title>
+</head>
+<script type="text/javascript">
+    String.method('findandreplace',function(){
+        //debugger;
+        var entity = {
+            quot:'"',
+            lt:'<',
+            gt:'>'
+        };
+        return function(){
+            return this.replace(/&([^&;]+);/g,
+                    function(a,b){
+                        var r = entity[b];
+                        return typeof r === 'string' ? r : a;
+                    }
+            );
+        };
+    }());
+    //用()运算法立刻调用我们刚刚构造出来的函数
+
+</script>
+<body>
+
+</body>
+<script type="text/javascript">
+    document.writeln('&lt;&quot;&gt;'.findandreplace( ));//<">
+    //modul_string_find_replace.html:8 Uncaught TypeError: String.method is not a function
+    //modul_string_find_replace.html:30 Uncaught TypeError: "&lt;&quot;&gt;".findandreplace is not a function
+</script>
+</html>
