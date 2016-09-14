@@ -1,0 +1,22 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>javascript操作数组</title>
+</head>
+<script type="text/javascript" src='../../../lib/js/jquery-3.1.0.js'></script>
+<script type="text/javascript">
+    var arr = [1,1,2,3,4,5];
+    document.writeln("arr init: "+arr.toString());
+    document.writeln("</br>");
+    document.writeln("2 index in arr: "+$.inArray(2,arr));
+    document.writeln("</br>");
+    arr.splice($.inArray(2,arr),1);
+    document.writeln("arr del result: "+arr.toString());
+    document.writeln("</br>");
+    document.writeln("4 index in arr: "+arr.indexOf(4));
+</script>
+<body>
+
+</body>
+</html>

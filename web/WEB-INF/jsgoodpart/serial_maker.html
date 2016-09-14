@@ -8,7 +8,7 @@
     var serial_maker = function(){
         var prefix = '';
         var seq = 0;
-        return{
+        return{//为什么写到return里面去啊，直接是它的一个方法不就完事了吗？
             set_prefix:function (p) {
                 prefix = String(p);
             },
@@ -17,7 +17,7 @@
             },
             gensym:function () {
                 var result = prefix + seq;
-                seq += 1;
+                seq += 1;//还是有用的，只不过第二次调用，才能看见=。=
                 return result;
             }
         };
@@ -26,9 +26,13 @@
     var seqer = serial_maker();
     seqer.set_prefix('Q');
     seqer.set_seq(1000);
-    var unique = seqer.gensym();
+    //var unique = seqer.gensym();
 
-    document.writeln(unique);
+    //可以隐藏prefix和seq
+    document.writeln(seqer.gensym());
+    document.writeln(seqer.gensym());
+    document.writeln(seqer.gensym());
+    document.writeln(seqer.gensym());
 </script>
 <body>
 
