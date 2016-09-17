@@ -5,7 +5,51 @@
     <title>ajax传递数组到后台</title>
 </head>
 <script type="text/javascript" src='../../../lib/js/jquery-3.1.0.js'></script>
+<script type="text/javascript">
+    $.ajax({
+        type:"GET",
+        url:
+        data: $("#ajaxForm").serialize()
+    });
+</script>
 <body>
+<form id="ajaxForm" action="">
+    <input type="hidden" name="hid" value="haha">
+    <table>
+        <tr>
+            <td>
+                <input name="ajaxList.id" value="1">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input name="ajaxList.name" value="first">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input name="ajaxList.num" value="10">
+            </td>
+        </tr>
+    </table>
+    <table>
+        <tr>
+            <td>
+                <input name="ajaxList.id" value="2">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input name="ajaxList.name" value="second">
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <input name="ajaxList.num" value="10">
+            </td>
+        </tr>
+    </table>
+</form>
 
 </body>
 </html>

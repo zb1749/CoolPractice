@@ -13,13 +13,17 @@ public class AjaxArrTransfer {
     @Getter
     @Setter
     private List<AjaxPojo> ajaxList;
+    @Getter
+    @Setter
+    private String hid;
 
     public void transArr() {
+        System.out.println("hid: " + hid);
         if (ajaxList != null && !ajaxList.isEmpty()) {
             for (AjaxPojo pojo : ajaxList) {
                 System.out.println(pojo.toString());
             }
-        }else{
+        } else {
             System.out.println("Do not receive ajaxList!");
         }
     }
