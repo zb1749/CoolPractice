@@ -10,4 +10,9 @@
             <result name="trans">/index.jsp</result>
         </action>
     </package>
+    <package name="default" namespace="/" extends="struts-default">
+        <action name="hello">
+            <result>/hello.jsp</result>
+        </action>
+    </package>
 </struts>
