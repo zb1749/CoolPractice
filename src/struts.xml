@@ -14,5 +14,8 @@
         <action name="hello">
             <result>/hello.jsp</result>
         </action>
+        <action name="practice">
+            <result>/WEB-INF/jspractice/ajax_array.html</result>
+        </action>
     </package>
 </struts>
