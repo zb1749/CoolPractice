@@ -12,7 +12,7 @@
     </package>
     <package name="default" namespace="/" extends="struts-default">
         <action name="hello">
-            <result>/hello.jsp</result>
+            <result>/WEB-INF/coolproject/login.jsp</result>
         </action>
         <action name="practice">
             <result>/WEB-INF/jspractice/ajax_array.html</result>
