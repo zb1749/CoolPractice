@@ -2,37 +2,76 @@
         "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-    <title>generate serial</title>
+    <title>generate serial - 闭包范例</title>
 </head>
 <script type="text/javascript">
-    var serial_maker = function(){
+    var serial_maker = function () {
         var prefix = '';
         var seq = 0;
-        return{//为什么写到return里面去啊，直接是它的一个方法不就完事了吗？
-            set_prefix:function (p) {
+        var count = 0;
+        return {//为什么写到return里面去啊，直接是它的一个方法不就完事了吗？
+            set_prefix: function (p) {
                 prefix = String(p);
             },
-            set_seq:function (s) {
+            set_seq: function (s) {
                 seq = s;
             },
-            gensym:function () {
+            gensym: function () {
                 var result = prefix + seq;
                 seq += 1;//还是有用的，只不过第二次调用，才能看见=。=
+                count++;
                 return result;
+            },
+            reduce: function (s) {
+                count--;
+            },
+            getTotal: function () {
+                return count;
             }
         };
     };
 
     var seqer = serial_maker();
     seqer.set_prefix('Q');
-    seqer.set_seq(1000);
+    seqer.set_seq(0);
     //var unique = seqer.gensym();
 
     //可以隐藏prefix和seq
-    document.writeln(seqer.gensym());
-    document.writeln(seqer.gensym());
-    document.writeln(seqer.gensym());
-    document.writeln(seqer.gensym());
+    document.writeln("+1:" + seqer.gensym());
+    document.writeln("</br>");
+    document.writeln("+1:" + seqer.gensym());
+    document.writeln("</br>");
+    document.writeln("+1:" + seqer.gensym());
+    document.writeln("</br>");
+    document.writeln("total:" + seqer.getTotal());
+    document.writeln("</br>");
+    document.writeln("-1");
+    seqer.reduce();
+    document.writeln("</br>");
+    document.writeln("total:" + seqer.getTotal());
+    document.writeln("</br>");
+    document.writeln("+1:" + seqer.gensym());
+    document.writeln("</br>");
+    document.writeln("+1:" + seqer.gensym());
+    document.writeln("</br>");
+    document.writeln("total:" + seqer.getTotal());
+    document.writeln("</br>");
+    document.writeln("-1");
+    seqer.reduce();
+    document.writeln("</br>");
+    document.writeln("-1");
+    seqer.reduce();
+    document.writeln("</br>");
+    document.writeln("-1");
+    seqer.reduce();
+    document.writeln("</br>");
+    document.writeln("+1:" + seqer.gensym());
+    document.writeln("</br>");
+    document.writeln("+1:" + seqer.gensym());
+    document.writeln("</br>");
+    document.writeln("+1:" + seqer.gensym());
+    document.writeln("</br>");
+    document.writeln("total:" + seqer.getTotal());
 </script>
 <body>
 
