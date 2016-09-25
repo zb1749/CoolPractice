@@ -5,17 +5,42 @@
         "http://struts.apache.org/dtds/struts-2.0.dtd">
 
 <struts>
-    <package name="ajaxTrans" extends="struts-default">
-        <action name="ajax" class="struts2.action.AjaxArrTransfer">
-            <result name="trans">/index.jsp</result>
-        </action>
-    </package>
+    <constant name="struts.i18n.encoding" value="UTF-8"/>
     <package name="default" namespace="/" extends="struts-default">
         <action name="hello">
             <result>/WEB-INF/coolproject/login.jsp</result>
         </action>
         <action name="practice">
             <result>/WEB-INF/jspractice/ajax_array.html</result>
+        </action>
+    </package>
+    <package name="json" namespace="/json" extends="json-default">
+        <action name="JSONExample" class="struts2.action.JSONExample">
+            <!-- 配置类型的json的Result -->
+            <result type="json">
+                <!-- 为该Result指定参数 -->
+                <param name="noCache">true</param>
+                <param name="contentType">text/html</param>
+                <!-- 设置只序列Action的map属性 -->
+                <!--  param name="root">map</param -->
+            </result>
+        </action>
+        <!-- 可以作为default入口 -->
+        <action name="*">
+            <result>/WEB-INF/json/{1}.jsp</result>
+        </action>
+    </package>
+    <package name="ajax" namespace="/ajax" extends="struts-default">
+        <action name="page">
+            <result>/WEB-INF/jspractice/ajax_array.html</result>
+        </action>
+        <action name="jsonArr" class="ajax.domJsonArr.action.AjaxArrTransfer">
+            <result name="success">/WEB-INF/jspractice/ajax_array.html</result>
+        </action>
+    </package>
+    <package name="ajaxTrans" extends="struts-default">
+        <action name="ajax" class="struts2.action.AjaxArrTransfer">
+            <result name="trans">/index.jsp</result>
         </action>
     </package>
 </struts>
