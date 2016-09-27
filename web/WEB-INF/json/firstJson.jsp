@@ -26,7 +26,7 @@
 					// 遍历JavaScript对象的各属性
 					for(var propName in data)
 					{
-						$("#show").append(propName + "--"
+						$("#show").append(propName + "-->"
 							+ data[propName] + "<br/>");
 					}
 					$("#show").show(600);

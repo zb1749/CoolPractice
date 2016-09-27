@@ -1,0 +1,29 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>Title</title>
+</head>
+<script type="text/javascript" src='../../jslib/jquery-3.1.0.js'></script>
+<script type="text/javascript">
+    var arr = [1, 1, 2, 3, 4, 5];
+    document.writeln("arr init: " + arr.toString());
+    document.writeln("</br>");
+
+</script>
+<body>
+<div id="dt"></div>
+</body>
+<script type="text/javascript">
+
+    $("#dt").data("arr", arr);
+    //debugger;
+    var store = $("#dt").data("arr");
+    document.writeln("arr from jquery data: " + store.toString());
+    document.writeln("</br>");
+    var second = $("#dt").data("");
+    var second = $("#dt").data("arr");
+    document.writeln("arr from jquery data, after '': " + second.toString());
+    document.writeln("</br>");
+</script>
+</html>
