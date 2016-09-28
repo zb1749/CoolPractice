@@ -1,0 +1,23 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>hanoi tower</title>
+</head>
+<script type="text/javascript">
+    var hanoi = function (disc, src, aux, dst) {
+        debugger;
+        if (disc > 0) {
+            hanoi(disc - 1, src, dst, aux);
+            document.writeln("move disc " + disc + " from " + src + " to " + dst);
+            document.writeln("</br>");
+            hanoi(disc - 1, aux, src, dst);
+        }
+    }
+
+    hanoi(7, 'a', 'b', 'c');
+</script>
+<body>
+
+</body>
+</html>
