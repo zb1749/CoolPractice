@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+    http://www.springframework.org/schema/beans/spring-beans-3.2.xsd">
+
+	<bean id="application"  class="spring.propertiesToBean.Application">
+		<property name="contUploadUrl" value="${contupload.url}"></property>
+		<property name="uploadPath" value="${application.video.uploadpath}"></property>
+		<property name="contentReconciliationPath" value="${application.video.contentReconciliationPath}"></property>
+		<property name="aesEncryptKey" value="${application.aes.encryptKey}"></property>
+		<property name="desEncryptKey" value="${application.des.encryptKey}"></property>
+		<property name="ftpSwitch" value="${application.vms.ftpSwitch}"></property>
+		<property name="videoCodeNamePattern" value="${video_code.namePattern}"></property>
+		<property name="videoContentNamePattern" value="${video_content.namePattern}"></property>
+		<property name="videoCodeNamePreFix" value="${video_code.namePreFix}"></property>
+		<property name="videoContentNamePreFix" value="${video_content.namePreFix}"></property>
+		<property name="videoInfoFilePath" value="${video_info_file.path}"></property>
+		<property name="queryContentDataFreq" value="${queryContentData.task.freq}"></property>
+		<property name="vmsUploadHomePath" value="${vms.video_upload_home_path}"></property>
+		<property name="vmsUploadPath" value="${vms.videouploadpath}"></property>
+		<property name="sessionHoldFreq" value="${vms.sessionhold.freq}"></property>
+		<property name="uploadPageSize" value="${vms.upload.pagesize}"></property>
+		<property name="imageRootPath" value="${vms.image.home}"></property>
+		<property name="imageDownloadUrl" value="${vms.image.download.url}"></property>
+		<property name="businessDistributeWhitelist" value="${business.distribute.whitelist}"></property>
+		<property name="lastTimeSavePath" value="${lastTime.SavePath}"></property>
+		<property name="contentUrlPrefix" value="${content.url.prefix}"></property>
+		<property name="queryContentOffset" value="${queryContent.offset}"></property>
+		<property name="autoPlayControlFreq" value="${autoPlayControl.task.freq}"></property>
+		<property name="autoPlayControlUrl" value="${autoPlayControl.url}"></property>
+		<property name="autoPlayControlBcId" value="${autoPlayControl.bcId}"></property>
+		<property name="releaseTimeMinute" value="${releaseTime.minute}"></property>
+	</bean>
+
+</beans>
