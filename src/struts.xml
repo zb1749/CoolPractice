@@ -6,6 +6,7 @@
 
 <struts>
     <constant name="struts.i18n.encoding" value="UTF-8"/>
+
     <package name="default" namespace="/" extends="struts-default">
         <action name="hello">
             <result>/WEB-INF/coolproject/login.jsp</result>
@@ -28,6 +29,18 @@
         <!-- 可以作为default入口 -->
         <action name="*">
             <result>/WEB-INF/json/{1}.jsp</result>
+        </action>
+    </package>
+    <package name="cookie" namespace="/cookie" extends="struts-default">
+        <!-- 可以作为default入口 -->
+        <action name="*">
+            <result>/WEB-INF/cookie/{1}.jsp</result>
+        </action>
+    </package>
+    <package name="session" namespace="/session" extends="struts-default">
+        <!-- 可以作为default入口 -->
+        <action name="*">
+            <result>/WEB-INF/session/{1}.jsp</result>
         </action>
     </package>
     <package name="ajax" namespace="/ajax" extends="struts-default">
