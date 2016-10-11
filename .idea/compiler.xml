@@ -2,6 +2,7 @@
 <project version="4">
   <component name="AjcSettings">
     <option name="ajcPath" value="D:/programs/aspectj/aspectjtools-1.8.9.jar" />
+    <option name="delegateToJavac" value="true" />
   </component>
   <component name="CompilerConfiguration">
     <option name="DEFAULT_COMPILER" value="ajc" />
@@ -29,7 +30,7 @@
         <module name="CoolPractice" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel>
+    <bytecodeTargetLevel target="1.9">
       <module name="CoolPractice" target="1.5" />
     </bytecodeTargetLevel>
   </component>
