@@ -21,13 +21,12 @@ public class ParseXml {
         xstream.alias("ResBusiness", ResBusiness.class);
         xstream.alias("Poms", List.class);
         xstream.alias("Product", Product.class);
-        xstream.alias("SecondClassify", SecondClassify.class);
         xstream.alias("SecondClassifys", List.class);
+        xstream.alias("SecondClassify", SecondClassify.class);
+        xstream.alias("MediaFiles", List.class);
         xstream.alias("MediaFile", MediaFile.class);
-        xstream.alias("MediaFiles", List.class);
-        xstream.alias("MediaFiles", List.class);
-        xstream.alias("DisplayFile", DisplayFile.class);
         xstream.alias("DisplayFilePath", List.class);
+        xstream.alias("DisplayFile", DisplayFile.class);
         //忽略字段
         xstream.omitField(Product.class, "UpdateFields");
         xstream.omitField(Product.class, "Priority");
