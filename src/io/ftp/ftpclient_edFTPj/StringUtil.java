@@ -1,4 +1,4 @@
-package io.ftp;
+package io.ftp.ftpclient_edFTPj;
 
 import java.math.BigDecimal;
 import java.util.regex.Matcher;

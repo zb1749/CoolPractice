@@ -8,7 +8,7 @@
     <file url="file://$PROJECT_DIR$/src/aop/aspectj/aspectj/AuthAspect.java.a" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/aop/aspectj/aspectj/LogAspect.java.a" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/aop/aspectj/aspectj/TxAspect.java.a" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/jdk/collection/ListDifferenceSet.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/collection/different/ListDifferenceSet.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/web/WEB-INF/cookie/addCookie.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/web/WEB-INF/cookie/cnCookie.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/web/WEB-INF/cookie/readCookie.jsp" charset="GBK" />

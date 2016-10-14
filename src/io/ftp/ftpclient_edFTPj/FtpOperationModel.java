@@ -1,4 +1,4 @@
-package io.ftp;
+package io.ftp.ftpclient_edFTPj;
 
 import com.enterprisedt.net.ftp.FTPTransferType;
 
