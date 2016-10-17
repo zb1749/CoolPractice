@@ -93,6 +93,12 @@
             <artifactId>rt</artifactId>
             <version>1.0</version>
         </dependency>
+        <!-- apache ftpclient -->
+        <dependency>
+            <groupId>commons-net</groupId>
+            <artifactId>commons-net</artifactId>
+            <version>3.5</version>
+        </dependency>
 
         <dependency>
             <groupId>commons-logging</groupId>
