@@ -118,12 +118,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * 
 	 * 功能说明：将Date类型日期转换字符串
-	 * 
-	 * @param date
-	 * @return
-	 * 
 	 */
 	public static String parseStrToStr2(String datestr) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -176,12 +171,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * 
 	 * 功能说明：将String类型日期转换字符串yyyyMMdd HH:mm
-	 * 
-	 * @param date
-	 * @return
-	 * 
 	 */
 	public static String parseStrToStr(String datestr) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd HH:mm");
@@ -197,12 +187,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * 
 	 * 功能说明：将String类型日期转换字符串yyyy-MM-dd
-	 * 
-	 * @param date
-	 * @return
-	 * 
 	 */
 	public static String parseStrToStr4(String datestr) {
 		SimpleDateFormat df = new SimpleDateFormat("yyyy-MM-dd");
@@ -218,16 +203,14 @@ public class DateUtil {
 	}
 
 	/**
-	 * @see 取得当前时间（格式为：yyyyMMddHHmmss）
-	 * @return String
+	 *  取得当前时间（格式为：yyyyMMddHHmmss）
 	 */
 	public static String getDateTime() {
 		return getTimeFormat("yyyyMMddHHmmss");
 	}
 
 	/**
-	 * @see 按指定格式取得当前时间()
-	 * @return String
+	 *  按指定格式取得当前时间()
 	 */
 	public static String getTimeFormat(String strFormat) {
 		SimpleDateFormat sdf = new SimpleDateFormat(strFormat);
@@ -236,8 +219,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * @see 按固定yyyy-MM-dd HH:mm:ss格式取得当前时间()
-	 * @return String
+	 *  按固定yyyy-MM-dd HH:mm:ss格式取得当前时间()
 	 */
 	public static String getTimeFormat() {
 		SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -307,9 +289,6 @@ public class DateUtil {
 
 	/**
 	 * 功能说明：将String类型yyyyMMddHHmms转换yyyy-MM-dd HH:mm:ss格式
-	 * 
-	 * @param date
-	 * @return
 	 */
 	public static String parseStringToStr(String dateStr) {
 		try {
@@ -333,11 +312,6 @@ public class DateUtil {
 
 	/**
 	 * 比较开始时间和结束时间， 如果开始时间在结束时间之前则返回ture；否则返回false
-	 * 
-	 * @param currentTime
-	 * @param endTime
-	 * @param format
-	 * @return
 	 */
 	public static boolean CompareTime(String currentTime, String afterTime,
 			String format) {
@@ -394,9 +368,6 @@ public class DateUtil {
 
 	/**
 	 * 将14位到转化为19位 yyyy-MM-dd HH:mm:ss
-	 * 
-	 * @param format
-	 * @return
 	 */
 	public static String format14to19(String dateTime) {
 		if (null == dateTime) {
@@ -476,9 +447,7 @@ public class DateUtil {
 
 	/**
 	 * 取得当前日期
-	 * 
-	 * @param format
-	 *            日期格式，默认为yyyy-MM-dd
+	 * 日期格式，默认为yyyy-MM-dd
 	 * @return
 	 */
 	public static String getDate() {
@@ -495,8 +464,7 @@ public class DateUtil {
 	}
 
 	/**
-	 * @see 取得当前时间（格式为：yyyy-MM-dd HH:mm:ss）
-	 * @return String
+	 * 取得当前时间（格式为：yyyy-MM-dd HH:mm:ss）
 	 */
 	public static String getDateTimeDefaultFormat() {
 		return getTimeFormat("yyyy-MM-dd HH:mm:ss");
