@@ -59,7 +59,7 @@ public class FtpUtils {
 		FtpUtils ftpUtils = new FtpUtils();
 		ftpUtils.ftpClient = new FTPClient();
 		ftpUtils.ftpClient.connect(server, port);
-		//System.out.println("ftp连接服务器" + server + ".");
+		System.out.println("ftp连接服务器" + server + ".");
 		//连接成功后的回应码  
 		System.out.println("连接返回码：" + ftpUtils.ftpClient.getReplyCode());
 		ftpUtils.ftpClient.login(user, password);
@@ -83,16 +83,19 @@ public class FtpUtils {
 	}
 	
 	/**
-	 * 设置连接方式 pasv 或 port
+	 * 设置连接方式 pasv 或 port, 默认被动
+	 * @author shaoyuanrong
 	 * @param connectType
 	 * @throws IOException
 	 *
 	 */
 	public void setConnectType(String connectType) throws IOException{
-		if("pasv".equalsIgnoreCase(connectType)){//主动
+		if("pasv".equalsIgnoreCase(connectType)){//被动
 			ftpClient.enterLocalPassiveMode();
-		}else if("port".equalsIgnoreCase(connectType)){//被动
+		}else if("port".equalsIgnoreCase(connectType)||"active".equals(connectType)){//主动
 			ftpClient.enterLocalActiveMode();
+		}else{
+			ftpClient.enterLocalPassiveMode();//被动
 		}
 	}
 
@@ -113,6 +116,8 @@ public class FtpUtils {
 	
 	/**
 	 * 安静关闭连接
+	 * @author shaoyuanrong
+	 *
 	 */
 	public void closeServerSilently(){
 		try {
@@ -223,12 +228,6 @@ public class FtpUtils {
 	public List<String> getFileList(String path) throws IOException {
 		FTPFile[] ftpFiles = ftpClient.listFiles(path);
 		//通过FTPFileFilter遍历只获得文件  
-		/*      FTPFile[] ftpFiles2= ftpClient.listFiles(path,new FTPFileFilter() { 
-		            @Override 
-		            public boolean accept(FTPFile ftpFile) { 
-		                return ftpFile.isFile(); 
-		            } 
-		        });  */
 		List<String> retList = new ArrayList<String>();
 		if (ftpFiles == null || ftpFiles.length == 0) {
 			return retList;
@@ -360,7 +359,9 @@ public class FtpUtils {
 
 	/**
 	 * 获得ftpClient
+	 * @author shaoyuanrong
 	 * @return
+	 *
 	 */
 	public FTPClient getFtpClient() {
 		return ftpClient;
