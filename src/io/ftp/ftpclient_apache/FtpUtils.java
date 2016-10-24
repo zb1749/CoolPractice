@@ -9,14 +9,24 @@ import java.io.OutputStream;
 import java.net.SocketException;
 import java.util.ArrayList;
 import java.util.List;
-
 import org.apache.commons.net.ftp.FTP;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPFile;
+import org.apache.log4j.Logger;
 
 public class FtpUtils {
-
+	private static Logger logger = Logger.getLogger(FtpUtils.class);
+	
 	private FTPClient ftpClient;
+
+	private static FtpUtils intence = new FtpUtils();
+
+	public FtpUtils() {
+	}
+
+	public static FtpUtils getIntence() {
+		return intence;
+	}
 
 	/**
 	 * 利用FtpConfig进行服务器连接
@@ -59,12 +69,14 @@ public class FtpUtils {
 		FtpUtils ftpUtils = new FtpUtils();
 		ftpUtils.ftpClient = new FTPClient();
 		ftpUtils.ftpClient.connect(server, port);
-		System.out.println("ftp连接服务器" + server + ".");
-		//连接成功后的回应码  
-		System.out.println("连接返回码：" + ftpUtils.ftpClient.getReplyCode());
+		logger.debug("ftp连接服务器" + server);
+		// 连接成功后的回应码
+		logger.debug("连接返回码：" + ftpUtils.ftpClient.getReplyCode());
 		ftpUtils.ftpClient.login(user, password);
 		if (path != null && path.length() != 0) {
-			ftpUtils.ftpClient.changeWorkingDirectory(path);
+			if (!ftpUtils.ftpClient.changeWorkingDirectory(path)) {
+				logger.error("ftp切换路径失败 " + path);
+			}
 		}
 		ftpUtils.ftpClient.setBufferSize(1024);//设置上传缓存大小  
 		ftpUtils.ftpClient.setControlEncoding(encoding);//设置编码  
@@ -84,10 +96,6 @@ public class FtpUtils {
 	
 	/**
 	 * 设置连接方式 pasv 或 port, 默认被动
-	 * @author shaoyuanrong
-	 * @param connectType
-	 * @throws IOException
-	 *
 	 */
 	public void setConnectType(String connectType) throws IOException{
 		if("pasv".equalsIgnoreCase(connectType)){//被动
@@ -106,7 +114,7 @@ public class FtpUtils {
 	 */
 	public void closeServer() throws IOException {
 		if(ftpClient == null || !ftpClient.isConnected()){
-			System.out.println("ftp已关闭的链接");
+			logger.warn("ftp已关闭的链接");
 			return;
 		}
 		ftpClient.logout();//退出FTP服务器   
@@ -116,14 +124,12 @@ public class FtpUtils {
 	
 	/**
 	 * 安静关闭连接
-	 * @author shaoyuanrong
-	 *
 	 */
 	public void closeServerSilently(){
 		try {
 			closeServer();
 		} catch (IOException e) {
-			System.out.println("关闭连接异常");
+			logger.debug("关闭连接异常");
 		}
 	}
 
@@ -180,14 +186,13 @@ public class FtpUtils {
 		if (ftpFileArr == null || ftpFileArr.length == 0) {
 			return removeDirectory(path);
 		}
-		//     
 		for (FTPFile ftpFile : ftpFileArr) {
 			String name = ftpFile.getName();
 			if (ftpFile.isDirectory()) {
-				System.out.println("* [sD]删除FTP目录 [" + path + "/" + name + "]");
+				logger.info("* [sD]删除FTP目录 [" + path + "/" + name + "]");
 				removeDirectory(path + "/" + name, true);
 			} else if (ftpFile.isFile()) {
-				System.out.println("* [sF]删除FTP文件 [" + path + "/" + name + "]");
+				logger.info("* [sF]删除FTP文件 [" + path + "/" + name + "]");
 				deleteFile(path + "/" + name);
 			} else if (ftpFile.isSymbolicLink()) {
 
@@ -227,7 +232,7 @@ public class FtpUtils {
 	 */
 	public List<String> getFileList(String path) throws IOException {
 		FTPFile[] ftpFiles = ftpClient.listFiles(path);
-		//通过FTPFileFilter遍历只获得文件  
+		// 通过FTPFileFilter遍历只获得文件
 		List<String> retList = new ArrayList<String>();
 		if (ftpFiles == null || ftpFiles.length == 0) {
 			return retList;
@@ -262,9 +267,6 @@ public class FtpUtils {
 		InputStream iStream = null;
 		try {
 			iStream = new FileInputStream(localFilePath);
-			//我们可以使用BufferedInputStream进行封装  
-			//BufferedInputStream bis=new BufferedInputStream(iStream);  
-			//flag = ftpClient.storeFile(remoteFileName, bis);   
 			flag = ftpClient.storeFile(remoteFileName, iStream);
 		} catch (IOException e) {
 			flag = false;
@@ -332,15 +334,16 @@ public class FtpUtils {
 		OutputStream oStream = null;
 		try {
 			oStream = new FileOutputStream(outfile);
-			//我们可以使用BufferedOutputStream进行封装  
-			//BufferedOutputStream bos=new BufferedOutputStream(oStream);  
-			//flag = ftpClient.retrieveFile(remoteFileName, bos);   
 			flag = ftpClient.retrieveFile(remoteFileName, oStream);
 		} catch (IOException e) {
+			logger.error("下载文件[" + remoteFileName + "]失败! " + e);
 			flag = false;
 			return flag;
 		} finally {
-			oStream.close();
+			if (oStream != null) {
+				oStream.flush();
+				oStream.close();
+			}
 		}
 		return flag;
 	}
@@ -359,12 +362,120 @@ public class FtpUtils {
 
 	/**
 	 * 获得ftpClient
-	 * @author shaoyuanrong
-	 * @return
-	 *
 	 */
 	public FTPClient getFtpClient() {
 		return ftpClient;
+	}
+
+	/**
+	 * 下载文件 - 连接和传输都包括
+	 * 
+	 * @param ftpConfig
+	 * @param remoteFileName
+	 * @param remotePath
+	 * @param localFileName
+	 * @param localPath
+	 * @param isDelete
+	 * @return
+	 */
+	public boolean download(FtpConfig ftpConfig, String remoteFileName,
+			String remotePath, String localFileName, String localPath,
+			boolean isDelete) {
+		// 连接
+		FtpUtils ftp = null;
+		try {
+			ftp = FtpUtils.connectServer(ftpConfig.getServer(),
+					ftpConfig.getPort(), ftpConfig.getUsername(),
+					ftpConfig.getPassword(), ftpConfig.getLocation(),
+					ftpConfig.getEncoding());
+			String mode = "pasv";
+			ftp.setConnectType(mode);
+		} catch (Exception e) {
+			logger.error("FTP无法连接", e);
+			throw new RuntimeException("FTP无法连接");
+		}
+		// 校验/创建目录
+		File localDirCheck = new File(localPath);
+		if (!localDirCheck.exists()) {
+			localDirCheck.mkdirs();
+		}
+		// 切换路径
+		if (remotePath != null && remotePath.length() != 0) {
+			try {
+				if (!ftp.ftpClient.changeWorkingDirectory(remotePath)) {
+					logger.error("ftp切换路径失败 " + remotePath);
+				}
+			} catch (IOException e) {
+				logger.error("ftp切换路径失败 " + remotePath + " " + e);
+			}
+		}
+		// 下载
+		boolean isDownload = false;
+		try {
+			isDownload = ftp
+					.download(remoteFileName, localPath + localFileName);
+		} catch (IOException e) {
+			logger.error("下载文件失败 " + e);
+			return false;
+		}
+		if (!isDownload) {
+			logger.error("下载文件失败 : " + remoteFileName);
+			return false;
+		}
+		// 删除文件
+		if (isDelete) {
+			try {
+				ftp.deleteFile(remoteFileName);
+			} catch (IOException e) {
+				logger.error("删除文件失败! " + e);
+				return false;
+			}
+		}
+		logger.info("下载FTP文件" + remotePath + remoteFileName + ",到" + localPath
+				+ localFileName);
+		// 关闭
+		ftp.closeServerSilently();
+		return isDownload;
+	}
+
+	/**
+	 * 上传文件到ftp (包括建立连接)
+	 * 
+	 * @param ftpConfig
+	 *            - 需要在location里面指定需要上传的目标ftp文件路径
+	 * @param remoteFileName
+	 *            上传到ftp的文件名-不包含路径
+	 * @param localPath
+	 *            本地文件路径
+	 * @param localFileName
+	 *            需要上传的文件名-不包含路径
+	 * @return
+	 */
+	public boolean uploadFile(FtpConfig ftpConfig, String remoteFileName,
+			String localPath, String localFileName) {
+		FtpUtils ftp = null;
+		try {
+			ftp = FtpUtils.connectServer(ftpConfig.getServer(),
+					ftpConfig.getPort(), ftpConfig.getUsername(),
+					ftpConfig.getPassword(), ftpConfig.getLocation(),
+					ftpConfig.getEncoding());
+			String mode = "pasv";
+			ftp.setConnectType(mode);
+		} catch (Exception e) {
+			logger.error("FTP无法连接", e);
+			throw new RuntimeException("FTP无法连接");
+		}
+		boolean flag = false;
+		try {
+			flag = ftp.uploadFile(localPath + localFileName, remoteFileName);
+		} catch (IOException e) {
+			logger.error("BDC_FTP 上传文件失败", e);
+		} finally {
+			ftp.closeServerSilently();
+		}
+		logger.info("上传FTP文件" + localPath + localFileName + ",到" + ftpConfig.getLocation()
+				+ remoteFileName);
+		return flag;
 	}
 
 }
