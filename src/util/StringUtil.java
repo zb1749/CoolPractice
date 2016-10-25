@@ -1,4 +1,4 @@
-package date;
+package util;
 
 public class StringUtil {
 	public static boolean isNotNull(String str) {
