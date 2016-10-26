@@ -1,4 +1,4 @@
-package dbutil.queryconfig.jsqlparser.util.deparser;
+package dbutil.queryconfig.jsqlparser.deparser;
 
 import dbutil.queryconfig.jsqlparser.expression.Expression;
 import dbutil.queryconfig.jsqlparser.expression.ExpressionVisitor;

@@ -1,4 +1,4 @@
-package dbutil.tools.string;
+package dbutil.tools.depend;
 
 import java.nio.charset.Charset;
 import java.nio.charset.UnsupportedCharsetException;

@@ -2,7 +2,7 @@ package dbutil.tools;
 
 
 import dbutil.tools.depend.XmlFixedReader;
-import dbutil.tools.string.CharsetName;
+import dbutil.tools.depend.CharsetName;
 import org.apache.commons.lang.StringEscapeUtils;
 import org.apache.log4j.Logger;
 import org.w3c.dom.*;

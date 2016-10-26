@@ -1,4 +1,4 @@
-package dbutil.queryconfig.jsqlparser.util.deparser;
+package dbutil.queryconfig.jsqlparser.deparser;
 
 import java.util.Iterator;
 
