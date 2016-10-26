@@ -10,10 +10,11 @@ public class FileNameRegexTest {
     public static void main(String[] args) {
         //a little test
         String regex1 = "(\\d{3}|\\d{4})_Req_\\d{15}_(\\d{3}|\\d{4}).xml";
-        String[] fileName1 = {"501123_Req_201609270078644_012.xml"};
+        String[] fileName1 = {"501123_Req_201609270078644_012.xml.temp"};
         Pattern pattern = Pattern.compile(regex1);
         Matcher matcher = pattern.matcher(fileName1[0]);
         System.out.println(matcher.find());
+        System.out.println(matcher.matches());
         //function
         FileNameRegexTest rt = new FileNameRegexTest();
         String regex = "(\\d{3}|\\d{4})_Req_\\d{15}_(\\d{3}|\\d{4}).xml";
