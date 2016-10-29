@@ -87,12 +87,12 @@
             <artifactId>edtFTPj</artifactId>
             <version>1.5.3</version>
         </dependency>
-        <!-- jdk io -->
+        <!-- jdk io
         <dependency>
             <groupId>rt</groupId>
             <artifactId>rt</artifactId>
             <version>1.0</version>
-        </dependency>
+        </dependency>-->
         <!-- apache ftpclient -->
         <dependency>
             <groupId>commons-net</groupId>
