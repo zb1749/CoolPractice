@@ -74,19 +74,19 @@
 
                 <form id='loginForm' method="POST">
                     <p>
-                        <label for="" class="uname" data-icon="u"> 用户名 </label>
+                        <label class="uname" data-icon="u"> 用户名 </label>
                         <input id="username" name="username" required="required" type="text"
                                placeholder="myusername or mymail@mail.com">
                     </p>
 
                     <p>
-                        <label for="" class="youpasswd" data-icon="p"> 密码 </label>
+                        <label class="youpasswd" data-icon="p"> 密码 </label>
                         <input id="password" name="password" required="required" type="password"
                                placeholder="eg. X8df!90EO">
                     </p>
 
                     <p>
-                        <label for="verification" class="verification" data-icon="v"> 验证 </label>
+                        <label class="verification" data-icon="v"> 验证 </label>
                         <img src="index" id="verify" align="middle" title="看不清，请点我" style="cursor:hand;"/><br/>
                         <input type="verification" id="verifyCode" name="verifyCode" placeholder="验证码"
                                required="required">

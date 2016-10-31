@@ -14,7 +14,7 @@
       <facet type="Struts2" name="Struts 2">
         <configuration>
           <fileset id="s2fileset" name="Cool Fileset " removed="false">
-            <file>file://$MODULE_DIR$/src/struts.xml</file>
+            <file>file://$MODULE_DIR$/conf/struts.xml</file>
             <file>jar://$MODULE_DIR$/web/WEB-INF/lib/struts2-core.jar!/struts-default.xml</file>
             <file>jar://$MODULE_DIR$/web/WEB-INF/lib/struts2-json-plugin-2.3.16.3.jar!/struts-plugin.xml</file>
           </fileset>
@@ -27,7 +27,6 @@
         <fileset id="fileset" name="Spring Application Context" removed="false">
           <file>file://$MODULE_DIR$/src/spring/propertiesToBean/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/login/spring-security.xml</file>
-          <file>file://$MODULE_DIR$/conf/spring-config.xml</file>
           <file>file://$MODULE_DIR$/src/multithread/threadpool/applicationContext-properties.xml</file>
           <file>file://$MODULE_DIR$/conf/hibernate-spring-config.xml</file>
         </fileset>
@@ -143,7 +142,6 @@
         <SOURCES />
       </library>
     </orderEntry>
-    <orderEntry type="library" scope="PROVIDED" name="Tomcat 9.0.0.M9" level="application_server_libraries" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: org.projectlombok:lombok:1.16.10" level="project" />
     <orderEntry type="library" name="Maven: com.alibaba:fastjson:1.2.3" level="project" />
     <orderEntry type="library" name="Maven: com.thoughtworks.xstream:xstream:1.4.5" level="project" />
