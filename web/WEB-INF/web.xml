@@ -8,18 +8,19 @@
         <filter-name>struts2</filter-name>
         <filter-class>org.apache.struts2.dispatcher.ng.filter.StrutsPrepareAndExecuteFilter</filter-class>
     </filter>
-    <!-- FilterDispatcher用来初始化struts2并且处理所有的WEB请求。 -->
+     FilterDispatcher用来初始化struts2并且处理所有的WEB请求。
     <filter-mapping>
         <filter-name>struts2</filter-name>
         <url-pattern>/*</url-pattern>
         <dispatcher>REQUEST</dispatcher>
         <dispatcher>FORWARD</dispatcher>
     </filter-mapping>
-    <!--spring security login verify-->
+    <!-- spring configuration - contextConfigLocation spring 的组件-->
     <context-param>
         <param-name>contextConfigLocation</param-name>
-        <param-value>classpath:/login/spring-*.xml</param-value>
+        <param-value>classpath:/spring/spring-security.xml,classpath:/spring/hibernate-spring-config.xml</param-value>
     </context-param>
+    <!--spring security-->
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>
         <filter-class>org.springframework.web.filter.DelegatingFilterProxy</filter-class>
@@ -28,4 +29,10 @@
         <filter-name>springSecurityFilterChain</filter-name>
         <url-pattern>/login</url-pattern><!--配制成 /login 而不是 /* ，因为我这是个测试项目-->
     </filter-mapping>
+
+    <display-name>Kevin`s Practice Display</display-name>
+    <welcome-file-list>
+        <welcome-file>/index.jsp</welcome-file>
+    </welcome-file-list>
+
 </web-app>

@@ -22,8 +22,6 @@
                 <!-- 为该Result指定参数 -->
                 <param name="noCache">true</param>
                 <param name="contentType">text/html</param>
-                <!-- 设置只序列Action的map属性 -->
-                <!--  param name="root">map</param -->
             </result>
         </action>
         <!-- 可以作为default入口 -->
@@ -54,6 +52,11 @@
     <package name="ajaxTrans" extends="struts-default">
         <action name="ajax" class="struts2.action.AjaxArrTransfer">
             <result name="trans">/index.jsp</result>
+        </action>
+    </package>
+    <package name="springsecurity" namespace="/login" extends="struts-default">
+        <action name="login">
+            <result>/WEB-INF/login/login.jsp</result>
         </action>
     </package>
 </struts>

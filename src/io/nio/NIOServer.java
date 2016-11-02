@@ -64,7 +64,9 @@ public class NIOServer {
                     channel.configureBlocking(false);
 
                     //在这里可以给客户端发送信息哦
-                    channel.write(ByteBuffer.wrap(new String("向客户端发送了一条信息").getBytes()));
+                    byte[] msg = new String("向客户端发送了一条信息").getBytes("utf-8");
+                    channel.write(ByteBuffer.wrap(msg));
+                    System.out.println(new String(msg));
                     //在和客户端连接成功之后，为了可以接收到客户端的信息，需要给通道设置读的权限。
                     channel.register(this.selector, SelectionKey.OP_READ);
 
@@ -88,7 +90,7 @@ public class NIOServer {
         // 服务器可读取消息:得到事件发生的Socket通道
         SocketChannel channel = (SocketChannel) key.channel();
         // 创建读取的缓冲区
-        ByteBuffer buffer = ByteBuffer.allocate(10);
+        ByteBuffer buffer = ByteBuffer.allocate(100);//这个范围要设置够大，不然一整段消息分成一段一段的读取输出，每段都不是完整的字符编码信息，都中文+乱码了 =。=
         channel.read(buffer);
         byte[] data = buffer.array();
         String msg = new String(data).trim();

@@ -19,8 +19,8 @@
 
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-        <spring.version>4.2.5.RELEASE</spring.version>
-        <hibernate.version>5.1.0.Final</hibernate.version>
+        <spring.version>3.2.2.RELEASE</spring.version>
+        <hibernate.version>4.2.0.Final</hibernate.version>
         <struts2.version>2.5-BETA3</struts2.version>
         <jackson.version>2.7.3</jackson.version>
     </properties>
@@ -69,12 +69,33 @@
             <artifactId>spring-web</artifactId>
             <version>${spring.version}</version>
         </dependency>
-        <!--servlet-->
+        <!-- spring-orm -->
         <dependency>
-            <groupId>javax.servlet</groupId>
-            <artifactId>javax.servlet-api</artifactId>
-            <version>3.1.0</version>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-orm</artifactId>
+            <version>${spring.version}</version>
         </dependency>
+        <!--login begin-->
+        <!-- spring-security-core -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-core</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- spring-security-web -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-web</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!-- spring-security-config -->
+        <dependency>
+            <groupId>org.springframework.security</groupId>
+            <artifactId>spring-security-config</artifactId>
+            <version>${spring.version}</version>
+        </dependency>
+        <!--login end-->
+
         <!-- aspectjrt -->
         <dependency>
             <groupId>org.aspectj</groupId>
@@ -87,92 +108,36 @@
             <artifactId>edtFTPj</artifactId>
             <version>1.5.3</version>
         </dependency>
-        <!-- jdk io
-        <dependency>
-            <groupId>rt</groupId>
-            <artifactId>rt</artifactId>
-            <version>1.0</version>
-        </dependency>-->
         <!-- apache ftpclient -->
         <dependency>
             <groupId>commons-net</groupId>
             <artifactId>commons-net</artifactId>
             <version>3.5</version>
         </dependency>
-        <!--dbutil begin-->
-        <!-- apache commons -->
-        <dependency>
-            <groupId>commons-lang</groupId>
-            <artifactId>commons-lang</artifactId>
-            <version>2.6</version>
-        </dependency>
-        <!-- spring-orm -->
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-orm</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        <!-- hibernate-core 3-->
+        <!-- hibernate-core 4-->
         <dependency>
             <groupId>org.hibernate</groupId>
             <artifactId>hibernate-core</artifactId>
-            <version>3.3.2.GA</version>
+            <version>${hibernate.version}</version>
         </dependency>
-        <!-- ejb3-persistence -->
-        <dependency>
-            <groupId>org.hibernate</groupId>
-            <artifactId>ejb3-persistence</artifactId>
-            <version>1.0.2.GA</version>
-        </dependency>
-        <!-- geronimo-jpa_2.0_spec -->
-        <dependency>
-            <groupId>org.apache.geronimo.specs</groupId>
-            <artifactId>geronimo-jpa_2.0_spec</artifactId>
-            <version>1.1</version>
-        </dependency>
-        <!--dbutil end-->
         <!-- c3p0 -->
         <dependency>
             <groupId>com.mchange</groupId>
             <artifactId>c3p0</artifactId>
             <version>0.9.5.2</version>
         </dependency>
-        <!--login begin-->
-        <!-- spring-security-core -->
+        <!--servlet-->
         <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-core</artifactId>
-            <version>3.1.0.RELEASE</version>
+            <groupId>javax.servlet</groupId>
+            <artifactId>javax.servlet-api</artifactId>
+            <version>3.1.0</version>
         </dependency>
-        <!-- spring-security-web -->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-web</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        <!-- spring-security-config -->
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-config</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        <!-- spring-security-taglibs
-        <dependency>
-            <groupId>org.springframework.security</groupId>
-            <artifactId>spring-security-taglibs</artifactId>
-            <version>3.1.0.RELEASE</version>
-        </dependency>
-        -->
-        <!--login end-->
-
         <!-- jstl -->
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
-
-
         <dependency>
             <groupId>commons-logging</groupId>
             <artifactId>commons-logging</artifactId>

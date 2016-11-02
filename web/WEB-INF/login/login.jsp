@@ -16,14 +16,13 @@
     <title></title>
     <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
     <title>Login</title>
-    <link href="./common/bootstrap/css/bootstrap.min.css" rel="stylesheet"/>
-    <link href="./common/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet"/>
-    <link rel="stylesheet" type="text/css" href="./common/css/demo.css"/>
-    <link rel="stylesheet" type="text/css" href="./common/css/style.css"/>
-    <link rel="stylesheet" type="text/css" href="./common/css/animate-custom.css"/>
-    <link rel="stylesheet" href="./common/bootstrap/css/bootstrap.css" type="text/css"/>
-    <script type="text/javascript" src="./common/bootstrap/js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="./common/jquery/jquery-2.1.1.min.js"></script>
+    <link rel="stylesheet" href="../../commons/bootstrap/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="../../commons/bootstrap/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="../../commons/css/demo.css"/>
+    <link rel="stylesheet" href="../../commons/css/style.css"/>
+    <link rel="stylesheet" href="../../commons/css/animate-custom.css"/>
+    <script type="text/javascript" src="../../commons/jquerylib/jquery-3.1.0.js"></script>
+    <script type="text/javascript" src="../../commons/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <script type="text/javascript">
     $(function () {
@@ -33,7 +32,7 @@
             var password = $("#password").val();
             var verifyCode = $("#verifyCode").val();
             var data = {username: username, password: password, verifyCode: verifyCode};
-            var url = "/upsweb/user/login";
+            var url = "/mvc/user/login";
             $.ajax({
                 type: "POST",
                 url: url,
@@ -41,11 +40,11 @@
                 dataType: "json",
                 success: function (result) {
                     if (result.ok) {
-                        location.href = "/upsweb";
+                        location.href = "/mvc";
                     } else {
                         $(".error").remove();
                         $("#loginForm").prepend("<div class='error' style='color: red'>" + result.msg + "</div>");
-                        $("#verify").attr("src", "/upsweb/index?timestamp=" + new Date().getTime()); // 刷新验证码
+                        $("#verify").attr("src", "/mvc/index?timestamp=" + new Date().getTime()); // 刷新验证码
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -56,7 +55,7 @@
         });
         //验证码更新
         $("#verify").click(function () {
-            $(this).attr("src", "/upsweb/index?timestamp=" + new Date().getTime());
+            $(this).attr("src", "/mvc/index?timestamp=" + new Date().getTime());
         });
 
     });
@@ -70,7 +69,7 @@
     <div id="container_demo">
         <div id="wrapper">
             <div id="login" class="animate form">
-                <h1>电信融合支付平台</h1>
+                <h1>支付登录测试</h1>
 
                 <form id='loginForm' method="POST">
                     <p>
@@ -87,7 +86,7 @@
 
                     <p>
                         <label class="verification" data-icon="v"> 验证 </label>
-                        <img src="index" id="verify" align="middle" title="看不清，请点我" style="cursor:hand;"/><br/>
+                        <img src="/mvc/index" id="verify" align="middle" title="看不清，请点我" style="cursor:hand;"/><br/>
                         <input type="verification" id="verifyCode" name="verifyCode" placeholder="验证码"
                                required="required">
                     </p>
