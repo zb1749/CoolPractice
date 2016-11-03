@@ -42,21 +42,31 @@
         </action>
     </package>
     <package name="ajax" namespace="/ajax" extends="struts-default">
-        <action name="page">
-            <result>/WEB-INF/jspractice/ajax_array.html</result>
+        <action name="index">
+            <result>/WEB-INF/ajax/index.jsp</result>
         </action>
-        <action name="jsonArr" class="ajax.domJsonArr.action.AjaxArrTransfer">
+        <action name="add">
+            <result>/WEB-INF/ajax/add.jsp</result>
+        </action>
+        <action name="modify">
+            <result>/WEB-INF/ajax/modify.jsp</result>
+        </action>
+        <action name="jsonArr_*" class="ajax.domJsonArr.action.AjaxArrTransfer" method="{1}">
+            <result name="add">/WEB-INF/ajax/add.jsp</result>
+            <result name="trans">/index.jsp</result>
             <result name="success">/WEB-INF/jspractice/ajax_array.html</result>
         </action>
     </package>
-    <package name="ajaxTrans" extends="struts-default">
-        <action name="ajax" class="struts2.action.AjaxArrTransfer">
-            <result name="trans">/index.jsp</result>
-        </action>
-    </package>
-    <package name="springsecurity" namespace="/login" extends="struts-default">
+    <package name="springSecurity" namespace="/login" extends="struts-default">
         <action name="login">
             <result>/WEB-INF/login/login.jsp</result>
+        </action>
+        <action name="verifyImgCode" class="login.spring_security.action.VerifyCodeAction">
+            <result name="success" type="stream">
+                <param name="contentType">image/jpeg</param>
+                <param name="inputName">imageStream</param>
+                <param name="bufferSize">2048</param>
+            </result>
         </action>
     </package>
 </struts>

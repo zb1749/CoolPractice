@@ -26,6 +26,8 @@
 </head>
 <script type="text/javascript">
     $(function () {
+        //加载即刷新验证码
+        verifyImgFlush();
         //登录提交
         $("#loginForm").submit(function () {
             var username = $("#username").val();
@@ -44,7 +46,7 @@
                     } else {
                         $(".error").remove();
                         $("#loginForm").prepend("<div class='error' style='color: red'>" + result.msg + "</div>");
-                        $("#verify").attr("src", "/mvc/index?timestamp=" + new Date().getTime()); // 刷新验证码
+                        $("#verify").attr("src", "/login/verifyImgCodex?timestamp=" + new Date().getTime()); // 刷新验证码
                     }
                 },
                 error: function (XMLHttpRequest, textStatus, errorThrown) {
@@ -53,16 +55,17 @@
             });
             return false;
         });
-        //验证码更新
-        $("#verify").click(function () {
-            $(this).attr("src", "/mvc/index?timestamp=" + new Date().getTime());
-        });
 
     });
 
-    $(function () {
-        $("#dd").popover();
-    });
+    //验证码更新
+    function verifyImgFlush () {
+        $("#verify").attr("src", "/login/verifyImgCode?timestamp=" + new Date().getTime());
+    }
+
+//    $(function () {
+//        $("#dd").popover();
+//    });
 </script>
 <body>
 <div class="container">
@@ -75,18 +78,18 @@
                     <p>
                         <label class="uname" data-icon="u"> 用户名 </label>
                         <input id="username" name="username" required="required" type="text"
-                               placeholder="myusername or mymail@mail.com">
+                               placeholder="username or mail@mail.com">
                     </p>
 
                     <p>
                         <label class="youpasswd" data-icon="p"> 密码 </label>
                         <input id="password" name="password" required="required" type="password"
-                               placeholder="eg. X8df!90EO">
+                               placeholder="eg. xx1234@@">
                     </p>
 
                     <p>
                         <label class="verification" data-icon="v"> 验证 </label>
-                        <img src="/mvc/index" id="verify" align="middle" title="看不清，请点我" style="cursor:hand;"/><br/>
+                        <img id="verify" onclick="javascript:verifyImgFlush()" align="middle" title="看不清，请点我" style="cursor:hand;"/><br/>
                         <input type="verification" id="verifyCode" name="verifyCode" placeholder="验证码"
                                required="required">
                     </p>
