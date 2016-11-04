@@ -46,13 +46,13 @@
             <result>/WEB-INF/ajax/index.jsp</result>
         </action>
         <action name="add">
-            <result>/WEB-INF/ajax/add.jsp</result>
+            <result>/WEB-INF/ajax/addFrame.jsp</result>
         </action>
         <action name="modify">
             <result>/WEB-INF/ajax/modify.jsp</result>
         </action>
         <action name="jsonArr_*" class="ajax.domJsonArr.action.AjaxArrTransfer" method="{1}">
-            <result name="add">/WEB-INF/ajax/add.jsp</result>
+            <result name="add">/WEB-INF/ajax/addDiv.jsp</result>
             <result name="trans">/index.jsp</result>
             <result name="success">/WEB-INF/jspractice/ajax_array.html</result>
         </action>

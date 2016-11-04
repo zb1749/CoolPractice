@@ -75,7 +75,7 @@
         try {
             var $div = _init(cfg.content, cfg.type, cfg.ok, cfg.cancel);
             $div.dialog({
-                appendTo: cfg.appendTo || "#" + $(".ui-tabs-selected").children("a").attr("idflag"),
+                appendTo: cfg.appendTo || "body",//jquery ui api : appendTo 默认body
                 minHeight: 150,
                 width: 278,
                 resizable: false,

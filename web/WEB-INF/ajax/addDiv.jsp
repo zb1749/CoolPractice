@@ -5,7 +5,6 @@
   Time: 9:52
   To change this template use File | Settings | File Templates.
 --%>
-<%@include file="/commons/commonlib.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <html>
 <head>
@@ -13,9 +12,8 @@
 </head>
 <script type="text/javascript">
     $(function () {
-        //alert($("#product_cycle_config_add").length);
         //初始化周期数数组存储
-        $("#div_cycleMonth").data("cycle-num",new Array());
+        $("#div_cycleMonth").data("cycle-num", new Array());
     });
     //生成产品周期配置sequence id
     var serial_maker = function () {
@@ -25,7 +23,7 @@
             set_seq: function (s) {
                 seq = s;
             },
-            genseq: function () {
+            gen_seq: function () {
                 var result = seq;
                 seq += 1;
                 count++;
@@ -42,13 +40,14 @@
     var cycleSeq = serial_maker();
     cycleSeq.set_seq(0);
     function create_cycle() {
-        if (cycleSeq.getTotal() >= 20) {
+        if (cycleSeq.getTotal() >= 2) {
+            //debugger;
             Box.message({
                 content: "只能一次创建20条记录!",
                 type: "warning"
             });
         } else {
-            var seq = cycleSeq.genseq();
+            var seq = cycleSeq.gen_seq();
             $("#div_cycleMonth").append($("<div id='" + "cycle" + seq + "'>" + $("#product_cycle_config_add").html() + "</div>"));
             $("#cycle" + seq).find("input[name=cycleCheckBox]").val("cycle" + seq);
             bind_num_change("cycle" + seq);
@@ -122,20 +121,23 @@
     }
 </script>
 <body>
-<form id="productApply_apply" name="productApply_apply">
-    <div id="div_cycleMonth">
-        <table class="table-edit" style="margin:0 auto">
-            <tr>
-                <td>
-                    <a class="btn-auto-size" onclick="javascript:create_cycle()">创建周期</a>
-                </td>
-                <td>
-                    <a class="btn-auto-size" onclick="javascript:delete_cycle()">删除周期</a>
-                </td>
-            </tr>
-        </table>
-    </div>
-</form>
+<%--<div class="dialog-header">创建产品</div>--%>
+<div class="main-unit" style="height:560px; overflow:auto">
+    <form id="productApply_apply" name="productApply_apply">
+        <div id="div_cycleMonth">
+            <table class="table-edit" style="margin:0 auto">
+                <tr>
+                    <td>
+                        <a class="btn-auto-size" onclick="javascript:create_cycle()">创建周期</a>
+                    </td>
+                    <td>
+                        <a class="btn-auto-size" onclick="javascript:delete_cycle()">删除周期</a>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </form>
+</div>
 </body>
 </html>
 

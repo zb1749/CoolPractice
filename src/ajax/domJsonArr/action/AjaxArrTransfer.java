@@ -1,24 +1,32 @@
 package ajax.domJsonArr.action;
 
+import com.alibaba.fastjson.JSONArray;
 import com.opensymphony.xwork2.ActionSupport;
 import lombok.Getter;
 import lombok.Setter;
-import struts2.pojo.AjaxPojo;
+import ajax.domJsonArr.pojo.AjaxPojo;
+import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
  * Created by kevin on 2016/9/16.
  */
 public class AjaxArrTransfer extends ActionSupport{
-    @Getter
-    @Setter
-    private List<AjaxPojo> ajaxList;
+
     @Getter
     @Setter
     private String hid;
+    @Getter
+    @Setter
+    private String ajaxArrJson;
 
     public String transArr() {
+        List<AjaxPojo> ajaxList = new ArrayList<AjaxPojo>();
+        if (!StringUtils.isEmpty(ajaxArrJson)) {
+            ajaxList = JSONArray.parseArray(ajaxArrJson, AjaxPojo.class);
+        }
         System.out.println("hid: " + hid);
         if (ajaxList != null && !ajaxList.isEmpty()) {
             for (AjaxPojo pojo : ajaxList) {
