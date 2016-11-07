@@ -81,12 +81,15 @@
         //debugger;
         //提交
         $.ajax({
-            url: "<s:url value='/ajax/jsonArr_transArr.action'/>.json?ajaxArrJson=" + message + "&productInfoHeadPojo.appStorePay=4",
+            url: "<s:url value='/ajax/jsonArrTransArr.action'/>?ajaxArrJson=" + message + "&productInfoHeadPojo.appStorePay=4",
             type: "GET",
             loading: false,
             data: $("#productApply_apply").serialize(),
             dataType: "json",
             success : function(reData){
+//                alert("returned");
+                var jsonRel = eval(reData);
+                alert(jsonRel.toString());
                 Box.message({
                     content:"json array trans success!",
                     type:"warning"

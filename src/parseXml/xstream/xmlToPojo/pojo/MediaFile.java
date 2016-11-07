@@ -1,4 +1,4 @@
-package xstream.pojo;
+package parseXml.xstream.xmlToPojo.pojo;
 
 public class MediaFile
 {

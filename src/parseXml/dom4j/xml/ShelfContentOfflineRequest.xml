@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Request>
+    <contentOfflineList>
+        <contentOfflineInfo>
+            <contentId>333333333</contentId>
+            <chapterId>333333001</chapterId>
+        </contentOfflineInfo>
+    </contentOfflineList>
+</Request>

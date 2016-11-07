@@ -15,19 +15,22 @@ import java.util.List;
  */
 public class AjaxArrTransfer extends ActionSupport{
 
-    @Getter
-    @Setter
-    private String hid;
+//    @Getter
+//    @Setter
+//    private String hid;
     @Getter
     @Setter
     private String ajaxArrJson;
+    @Getter
+    @Setter
+    private String jsonResult;
 
     public String transArr() {
         List<AjaxPojo> ajaxList = new ArrayList<AjaxPojo>();
         if (!StringUtils.isEmpty(ajaxArrJson)) {
             ajaxList = JSONArray.parseArray(ajaxArrJson, AjaxPojo.class);
         }
-        System.out.println("hid: " + hid);
+        //System.out.println("hid: " + hid);
         if (ajaxList != null && !ajaxList.isEmpty()) {
             for (AjaxPojo pojo : ajaxList) {
                 System.out.println(pojo.toString());
@@ -35,6 +38,8 @@ public class AjaxArrTransfer extends ActionSupport{
         } else {
             System.out.println("Do not receive ajaxList!");
         }
+        //return "trans";
+        jsonResult = ajaxArrJson;
         return "trans";
     }
 

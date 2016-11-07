@@ -22,6 +22,7 @@
                 <!-- 为该Result指定参数 -->
                 <param name="noCache">true</param>
                 <param name="contentType">text/html</param>
+                <param name="root">newName</param>
             </result>
         </action>
         <!-- 可以作为default入口 -->
@@ -41,7 +42,7 @@
             <result>/WEB-INF/session/{1}.jsp</result>
         </action>
     </package>
-    <package name="ajax" namespace="/ajax" extends="struts-default">
+    <package name="ajax" namespace="/ajax" extends="json-default">
         <action name="index">
             <result>/WEB-INF/ajax/index.jsp</result>
         </action>
@@ -53,8 +54,15 @@
         </action>
         <action name="jsonArr_*" class="ajax.domJsonArr.action.AjaxArrTransfer" method="{1}">
             <result name="add">/WEB-INF/ajax/addDiv.jsp</result>
-            <result name="trans">/index.jsp</result>
-            <result name="success">/WEB-INF/jspractice/ajax_array.html</result>
+            <!--<result name="trans">/index.jsp</result>-->
+            <!--<result name="success">/WEB-INF/jspractice/ajax_array.html</result>-->
+        </action>
+        <action name="jsonArrTransArr" class="ajax.domJsonArr.action.AjaxArrTransfer" method="transArr">
+            <!-- 配置类型的json的Result -->
+            <result name="trans" type="json">
+                <!-- 为该Result指定参数 -->
+                <!--<param name="root">jsonResult</param>-->
+            </result>
         </action>
     </package>
     <package name="springSecurity" namespace="/login" extends="struts-default">

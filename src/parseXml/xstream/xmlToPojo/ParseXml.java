@@ -1,15 +1,15 @@
-package xstream;
+package parseXml.xstream.xmlToPojo;
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;
 import io.file.FileUtil;
-import xstream.pojo.*;
+import parseXml.xstream.xmlToPojo.pojo.*;
 
 import java.util.List;
 
 public class ParseXml {
     public static void main(String[] args) {
-        String response = FileUtil.readFile("D:/IdeaProject/CoolPractice/src/xstream/xml/RespXml_Added.xml");
+        String response = FileUtil.readFile("D:/IdeaProject/CoolPractice/src/parseXml/xstream/xmlToPojo/xml/RespXml_Added.xml");
         System.out.println("input xml: "+response);
         QueryAutoPlayRsp rsp = xmlToQueryPlayRsp(response);
         System.out.println(rsp);
