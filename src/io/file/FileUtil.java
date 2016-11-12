@@ -87,8 +87,6 @@ public class FileUtil {
                 logWriter.close();
             } catch (Exception e) {
                 logger.error("close fileWriter fail " + e.getMessage());
-            } finally {
-                logWriter = null;
             }
         }
     }
