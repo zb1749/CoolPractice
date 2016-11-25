@@ -6,8 +6,8 @@ import java.io.UnsupportedEncodingException;
 import java.net.SocketException;
 import java.util.HashMap;
 import java.util.Map;
-import java.util.logging.Logger;
 
+import org.apache.log4j.Logger;
 import org.apache.commons.httpclient.ConnectTimeoutException;
 import org.apache.commons.httpclient.Header;
 import org.apache.commons.httpclient.HttpClient;
@@ -18,7 +18,7 @@ import org.apache.commons.httpclient.methods.GetMethod;
 import org.apache.commons.httpclient.methods.PostMethod;
 import org.apache.commons.httpclient.methods.RequestEntity;
 import org.apache.commons.httpclient.methods.StringRequestEntity;
-import org.apache.log4j.Level;
+
 
 
 /**
@@ -28,11 +28,9 @@ public class HttpUtil {
     /**
      * 日志对象
      */
-    private static org.apache.log4j.Logger log = org.apache.log4j.Logger.getLogger(HttpUtil.class);
+    private static Logger log = Logger.getLogger(HttpUtil.class);
 
     public final static String LINE_SEP = System.getProperty("line.separator");
-
-    public final static String FILE_SEP = System.getProperty("file.separator");
 
     public final static String HTTP_VER = "HTTP/1.0";
 

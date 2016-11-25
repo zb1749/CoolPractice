@@ -1,24 +1,40 @@
-package collection.different;
+package jdk.collection.different;
 
 import com.alibaba.fastjson.JSONArray;
-import collection.different.pojo.ProductCyclePojo;
+import jdk.collection.different.pojo.ProductCyclePojo;
 
 import java.util.ArrayList;
 import java.util.List;
 
 /**
- * Created by kevin on 2016/9/24.
+ * Created by Kevin on 2016/9/21.
  */
-public class PojoListDifferenceSet {
+public class ListDifferenceSet {
     public static void main(String[] args) {
 
+        //remove all string list  -- correct
+        List<String> list1 = new ArrayList<String>();
+        list1.add("1");
+        list1.add("2");
+        list1.add("3");
+        list1.add("4");
+        list1.add("5");
+        List<String> list2 = new ArrayList<String>();
+        list2.add("3");
+        list2.add("4");
+
+        System.out.println(list1.removeAll(list2));
+
+        for (String val : list1) {
+            System.out.println(val);
+        }
+
         //remove all pojo object from list
-        //removeAll ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pojo listï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã£ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð´pojoï¿½ï¿½ï¿½ï¿½ï¿½ hashcodeï¿½ï¿½ï¿½ï¿½ï¿½ï¿½equalsï¿½ï¿½ï¿½ï¿½ Ã»×¼ï¿½ï¿½ï¿½ï¿½=ï¿½ï¿½=
+        //removeAll ·½·¨¶Ôpojo list²¢²»ºÃÓÃ£¬ÒòÎª¶ÔÏó²»ÏëµÈ£¬Èç¹ûÖØÐ´pojo¶ÔÏóµÄ hashcode·½·¨ºÍequals·½·¨ Ã»×¼¿ÉÒÔ=¡£=
         String newCycleArrJson = "[{cycleNum:'1',fee:'100',supportPayTypes:'4',clientPrompt:'aa',autoRenewalFlag:'1',appStoreProductId:'123',appStoreApplicationId:'123'},{cycleNum:'3',fee:'300',supportPayTypes:'4',clientPrompt:'n',autoRenewalFlag:'0',appStoreProductId:'123',appStoreApplicationId:'123'},{cycleNum:'5',fee:'500',supportPayTypes:'4',clientPrompt:'r',autoRenewalFlag:'0',appStoreProductId:'123',appStoreApplicationId:'123'}]";
         String oldCycleArrJson = "[{'appStoreApplicationId':'123','appStoreProductId':'123','autoRenewalFlag':'1','clientPrompt':'aa','cycleNum':'1','fee':'100','supportPayTypes':'4'},{'appStoreApplicationId':'123','appStoreProductId':'123','autoRenewalFlag':'0','clientPrompt':'n','cycleNum':'3','fee':'300','supportPayTypes':'4'}]";
         List<ProductCyclePojo> newCycleList = JSONArray.parseArray(newCycleArrJson, ProductCyclePojo.class);
         List<ProductCyclePojo> oldCycleList = JSONArray.parseArray(oldCycleArrJson, ProductCyclePojo.class);
-        List<ProductCyclePojo> deleteCycleList = new ArrayList<ProductCyclePojo>();
         System.out.println("newCycleList");
         for (ProductCyclePojo pojo : newCycleList) {
             System.out.println(pojo);
@@ -28,26 +44,24 @@ public class PojoListDifferenceSet {
             System.out.println(pojo);
         }
 
-//        oldCycleList.removeAll(newCycleList);
-//        System.out.println("removeAll");
-//        for (ProductCyclePojo pojo : oldCycleList) {
-//            System.out.println(pojo);
-//        }
+        oldCycleList.removeAll(newCycleList);
+        System.out.println("removeAll");
+        for (ProductCyclePojo pojo : oldCycleList) {
+            System.out.println(pojo);
+        }
 
         System.out.println("remove pojo loop");
         List<ProductCyclePojo> productCycleList = JSONArray.parseArray(newCycleArrJson, ProductCyclePojo.class);
         List<ProductCyclePojo> oldProductCycleList = JSONArray.parseArray(oldCycleArrJson, ProductCyclePojo.class);
-        for (ProductCyclePojo oldPojo : oldProductCycleList) {
-            for (ProductCyclePojo newPojo : productCycleList) {
-                if (oldPojo.equalPojo(newPojo)) {
-                    //oldProductCycleList.remove(oldPojo);
-                    deleteCycleList.add(oldPojo);
+        for(ProductCyclePojo oldPojo : oldProductCycleList){
+            for(ProductCyclePojo newPojo : productCycleList){
+                if(oldPojo.equalPojo(newPojo)){
+                    oldProductCycleList.remove(oldPojo);
                     break;
                 }
             }
         }
-        //list ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö±ï¿½ï¿½ï¿½ï¿½removeï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½ï¿½È»ï¿½ä£¬ï¿½Í»ï¿½Ö±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½=ï¿½ï¿½=
-        for (ProductCyclePojo pojo : deleteCycleList) {
+        for (ProductCyclePojo pojo : oldProductCycleList) {
             System.out.println(pojo);
         }
 

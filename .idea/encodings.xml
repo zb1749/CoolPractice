@@ -9,9 +9,9 @@
     <file url="file://$PROJECT_DIR$/src/aop/aspectj/aspectjdeclare/AuthAspect.java.a" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/aop/aspectj/aspectjdeclare/LogAspect.java.a" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/aop/aspectj/aspectjdeclare/TxAspect.java.a" charset="GBK" />
-    <file url="file://$PROJECT_DIR$/src/collection/different/ListDifferenceSet.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/io/nio/NIOClient.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/io/nio/NIOServer.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/jdk/collection/different/ListDifferenceSet.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/struts2/action/JSONExample.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/web/WEB-INF/cookie/addCookie.jsp" charset="GBK" />
     <file url="file://$PROJECT_DIR$/web/WEB-INF/cookie/cnCookie.jsp" charset="GBK" />

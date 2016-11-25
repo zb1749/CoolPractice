@@ -2032,7 +2032,7 @@ Expr = Sizzle.selectors = {
 				( (attr = elem.getAttribute("type")) == null || attr.toLowerCase() === "text" );
 		},
 
-		// Position-in-collection
+		// Position-in-jdk.collection
 		"first": createPositionalPseudo(function() {
 			return [ 0 ];
 		}),
@@ -3263,7 +3263,7 @@ jQuery.Callbacks = function( options ) {
 		// Actual Callbacks object
 		self = {
 
-			// Add a callback or a collection of callbacks to the list
+			// Add a callback or a jdk.collection of callbacks to the list
 			add: function() {
 				if ( list ) {
 
@@ -4370,7 +4370,7 @@ function adjustCSS( elem, prop, valueParts, tween ) {
 }
 
 
-// Multifunctional method to get and set values of a collection
+// Multifunctional method to get and set values of a jdk.collection
 // The value/s can optionally be executed if it's a function
 var access = function( elems, fn, key, value, chainable, emptyGet, raw ) {
 	var i = 0,
@@ -4693,7 +4693,7 @@ function buildFragment( elems, context, scripts, selection, ignored ) {
 	i = 0;
 	while ( ( elem = nodes[ i++ ] ) ) {
 
-		// Skip elements already in the context collection (trac-4087)
+		// Skip elements already in the context jdk.collection (trac-4087)
 		if ( selection && jQuery.inArray( elem, selection ) > -1 ) {
 			if ( ignored ) {
 				ignored.push( elem );
@@ -6526,13 +6526,13 @@ var documentElement = document.documentElement;
 		return;
 	}
 
-	div.style.cssText = "float:left;opacity:.5";
+	div.style.cssText = "floate:left;opacity:.5";
 
 	// Support: IE<9
 	// Make sure that element opacity exists (as opposed to filter)
 	support.opacity = div.style.opacity === "0.5";
 
-	// Verify style float existence
+	// Verify style floate existence
 	// (IE uses styleFloat instead of cssFloat)
 	support.cssFloat = !!div.style.cssFloat;
 
@@ -7072,7 +7072,7 @@ jQuery.extend( {
 	// setting or getting the value
 	cssProps: {
 
-		// normalize float css property
+		// normalize floate css property
 		"float": support.cssFloat ? "cssFloat" : "styleFloat"
 	},
 
@@ -9483,7 +9483,7 @@ jQuery.extend( {
 			// Callbacks context
 			callbackContext = s.context || s,
 
-			// Context for global events is callbackContext if it is a DOM node or jQuery collection
+			// Context for global events is callbackContext if it is a DOM node or jQuery jdk.collection
 			globalEventContext = s.context &&
 				( callbackContext.nodeType || callbackContext.jquery ) ?
 					jQuery( callbackContext ) :
@@ -9767,7 +9767,7 @@ jQuery.extend( {
 				window.clearTimeout( timeoutTimer );
 			}
 
-			// Dereference transport for early garbage collection
+			// Dereference transport for early garbage jdk.collection
 			// (no matter how long the jqXHR object will be used)
 			transport = undefined;
 

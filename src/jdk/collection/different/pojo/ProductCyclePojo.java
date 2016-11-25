@@ -1,4 +1,4 @@
-package collection.different.pojo;
+package jdk.collection.different.pojo;
 
 
 public class ProductCyclePojo {

@@ -1,4 +1,4 @@
-package collection.traversal;
+package jdk.collection.traversal;
 
 import java.util.ArrayList;
 import java.util.Arrays;
