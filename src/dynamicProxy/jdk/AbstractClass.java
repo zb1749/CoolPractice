@@ -1,4 +1,4 @@
-package dynamicProxy;
+package dynamicProxy.jdk;
 
 /**
  * Created by kevin on 2016/10/11.
