@@ -1,0 +1,16 @@
+<?xml version='1.0' encoding='utf-8'?>
+<Response>
+    <retData>
+        <RetEnjoyBindData>
+            <mobile>13136528992</mobile>
+            <cardId>00303865319258125535069</cardId>
+            <retCode>29048</retCode>
+        </RetEnjoyBindData>
+        <RetEnjoyBindData>
+            <mobile>13136529032</mobile>
+            <cardId>00303170312145817783242</cardId>
+            <retCode>29048</retCode>
+        </RetEnjoyBindData>
+    </retData>
+    <bindTime>2016-12-01 18:23:17</bindTime>
+</Response>
