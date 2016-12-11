@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>show node number</title>
+</head>
+<script type="text/javascript">
+
+var childrenArr = $("#monthlyInfoResult input[name=checkBox]:checked").parent('td').parent('tr').children('td');
+alert(childrenArr[1].innerText);
+</script>
+<body>
+<p>
+    p1
+</p>
+<p>
+    p2
+</p>
+<p>
+    p3
+</p>
+<button>bb</button>
+
+</body>
+<script type="text/javascript">
+    add_the_handlers(document.body.children);
+</script>
+</html>
