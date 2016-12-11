@@ -30,6 +30,18 @@
             <result>/WEB-INF/json/{1}.jsp</result>
         </action>
     </package>
+    <package name="struts2-upload" extends="struts-default">
+        <!-- 配置处理文件上传的Action -->
+        <action name="upload" class="struts2.action.UploadAction">
+            <!-- 动态设置Action的属性值 -->
+            <param name="savePath">/uploadFiles</param>
+            <!-- 配置Struts 2默认的视图页面 -->
+            <result>/WEB-INF/upload/succ.jsp</result>
+        </action>
+        <action name="*">
+            <result>/WEB-INF/upload/{1}.jsp</result>
+        </action>
+    </package>
     <package name="cookie" namespace="/cookie" extends="struts-default">
         <!-- 可以作为default入口 -->
         <action name="*">
