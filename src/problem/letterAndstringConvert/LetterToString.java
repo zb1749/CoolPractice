@@ -1,5 +1,8 @@
 package problem.letterAndstringConvert;
 
+import java.util.Arrays;
+import java.util.List;
+
 /**
  * Created by Kevin on 2016/12/8.
  */
@@ -7,14 +10,12 @@ public class LetterToString {
 
 
     public static void main(String[] args) {
-        String i1 = "ABC";
-        String i2 = "123";
-        String i3 = "abc";
+        String[] arr = {"A","B","C","D","E","F","G","H","I","J","K","L","M","N","O","P","Q","R","S","T","U","V","W","X","Y","Z"};
+        List letterList = Arrays.asList(arr);
 
-        System.out.println(letterToNum(i1));
-        System.out.println(numToLetterUpper(i2));
-        System.out.println(letterToNum(i3));
-        System.out.println(t1(i3));
+        for(int i=1;i<25;i++){
+            System.out.println(i+" : "+letterList.get(i));
+        }
     }
 
     // 将字母转换成数字_1

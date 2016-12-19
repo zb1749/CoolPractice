@@ -1,0 +1,28 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
+        "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+    <title>show node number</title>
+</head>
+<script type="text/javascript" src='../../commons/jqueryLib/jquery-3.1.0.js'></script>
+<script type="text/javascript">
+    var monthlyCloseDate = "2016-07-22 00:00:00";
+    if (monthlyCloseDate != "") {
+        if (monthlyCloseDate.length === 7) {
+            monthlyCloseDate = monthlyCloseDate + "-01"
+        } else if (monthlyCloseDate.length === 19) {
+            monthlyCloseDate = monthlyCloseDate.substring(0, 10);
+        }
+    }
+    //alert(monthlyCloseDate);
+</script>
+<body>
+<!--front-size好用啊，为什么我在cmu项目中没效果呢？-->
+<table id="table_select">
+    <tr>
+        <td style="font-size: 150px">abc</td>
+    </tr>
+</table>
+
+</body>
+</html>

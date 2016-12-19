@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>this</title>
+</head>
+<script type="text/javascript" src='../../commons/jqueryLib/jquery-3.1.0.js'></script>
+<script type="text/javascript">
+    var $this ;
+    var thisVar ;
+    $(function () {
+        $("#table_select input").change(function () {
+            //alert($(this));
+            //alert(this);
+            $this = $(this);
+            thisVar = this;
+        });
+    });
+
+</script>
+<!--
+控制台结果
+$this
+[input]
+thisVar
+<input type="text" value="haha">
+$this.val()
+"hahahehe"
+thisVar.value
+"hahahehe"
+-->
+<body>
+<table id="table_select">
+    <tr>
+        <td><input type="text" value="haha"></td>
+    </tr>
+</table>
+
+</body>
+</html>
