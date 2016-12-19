@@ -89,4 +89,10 @@
             </result>
         </action>
     </package>
+    <package name="nav" namespace="/nav" extends="struts-default">
+        <!-- 可以作为default入口 -->
+        <action name="*">
+            <result>/WEB-INF/navigatePage/{1}.jsp</result>
+        </action>
+    </package>
 </struts>

@@ -5,7 +5,7 @@
 		init : function(options) {
 
 			return this.each(function(){
-
+				//debugger;
 				var $this = $(this);
 				
 				var defaults = {
@@ -42,7 +42,7 @@
 				$this.append('<span class="page-num">共 '+settings.totalPage+' 页</span>');
 				$this.append("<span class='next-page'></span>");
 				$this.append("<span class='last-page'></span>");
-				if(settings.count != null && !$.isNaN(settings.count)) {
+				if(settings.count != null && $.isNumeric(settings.count)) {
 					$this.append('<span class="data-count">共 '+settings.count+' 条</span>');
 				}
 				if(settings.refresh) {
@@ -186,7 +186,7 @@
 	};
 
 	$.fn.navPage = function(method) {
-
+		//debugger;
 		if (methods[method]) {
 			return methods[method].apply(this, Array.prototype.slice.call(arguments, 1));
 		} else if (typeof method === 'object' || !method) {

@@ -1,0 +1,9 @@
+.pageNav{width:24em; height:20px;vertical-align:middle; margin:13px auto;clear:both;}
+.first-page{ display:block; float: left; width:7px; height:10px; background:url(../images/nav/btn_back_homepage_normal.png) no-repeat; margin:5px 4px 5px 4px; cursor: pointer;}
+.prev-page{ display:block; float: left; width:6px; height:10px; background:url(../images/nav/btn_beforeone_normal.png) no-repeat; margin:5px 4px 5px 4px;cursor: pointer;}
+.curr-num, .page-num{ display:block; float: left; margin:0 5px; height:20px; line-height:20px}
+.enter-page-num{ width:40px; text-align:center}
+.next-page{ display:block; float: left; width:6px; height:10px; background:url(../images/nav/btn_nextone_normal.png) no-repeat; margin:5px;cursor: pointer;}
+.last-page{ display:block; float: left; width:7px; height:10px; background:url(../images/nav/btn_back_homepage_normal2.png) no-repeat; margin:5px 8px 5px 4px;cursor: pointer;}
+.data-count{ display:block; float:left; height:20px; line-height:20px}
+.pageNav-load{ display:block;float:left; width:14px; height:14px; background:url(../images/nav/icon-load.png) no-repeat; margin:4px 1px 2px 5px;cursor: pointer;}
