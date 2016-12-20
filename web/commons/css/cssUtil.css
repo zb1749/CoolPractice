@@ -1,2 +1,39 @@
 /*dialog*/
-.dialog-header{ width:100%; height:38px;line-height:38px;text-indent:8px; background:#2CADF1; color:#fff; font-size:14px;font-weight: bold;}
+.dialog-header {
+    width: 100%;
+    height: 38px;
+    line-height: 38px;
+    text-indent: 8px;
+    background: #2CADF1;
+    color: #fff;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+/*table*/
+.table-complex {
+    width: 100%;
+    clear: both;
+    margin-bottom: 10px;
+    table-layout: fixed
+}
+
+.table-complex th.in_orderBy, .table-complex th.sorting_asc, .table-complex th.sorting_desc {
+    cursor: pointer;
+}
+
+.table-complex th.in_orderBy {
+    background-position: right -7px;
+}
+
+.table-complex th.sorting_desc {
+    background-position: right -55px;
+}
+
+.table-complex th.sorting_asc {
+    background-position: right -101px;
+}
+
+th.th-no-sorting {
+    background-position: left -2px;
+}

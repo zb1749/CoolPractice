@@ -8,30 +8,30 @@
        http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
        ">
 
-	<!-- proptery 配置 -->
+	<!-- proptery 配置
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
 			<list>
-				<value>classpath:/properties/*-config.properties</value>
+				<value>classpath:/properties/db-config.properties</value>
 			</list>
 		</property>
-	</bean>
+	</bean> -->
 
     <!--数据源-->
-	<bean id="dataSource" class="com.mchange.v2.c3p0.ComboPooledDataSource"
+	<bean id="dataSourceMysql" class="com.mchange.v2.c3p0.ComboPooledDataSource"
 		destroy-method="close">
 		<property name="driverClass">
-			<value>${connection.driver_class}</value>
+			<value>${mysql.driver_class}</value>
 		</property>
 		<property name="jdbcUrl">
-			<value>${connection.url}</value>
+			<value>${mysql.url}</value>
 		</property>
 		<property name="user">
-			<value>${connection.username}</value>
+			<value>${mysql.username}</value>
 		</property>
 		<property name="password">
-			<value>${connection.password}</value>
+			<value>${mysql.password}</value>
 		</property>
 		<!--连接池中保留的最小连接数。 -->
 		<property name="minPoolSize">
@@ -102,9 +102,9 @@
 	</bean>
 
     <!--session-->
-	<bean id="sessionFactory"
+	<bean id="sessionFactoryMysql"
 		class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
-		<property name="dataSource" ref="dataSource" />
+		<property name="dataSource" ref="dataSourceMysql" />
 		<property name="packagesToScan">
 			<list>
 				<!--hibernate实体类扫描-->
@@ -130,13 +130,13 @@
 	</bean>
 
 	<!-- 配置事务容器 -->
-	<bean id="transactionManager"
+	<bean id="transactionManagerMysql"
 		class="org.springframework.orm.hibernate4.HibernateTransactionManager">
-		<property name="sessionFactory" ref="sessionFactory" />
-		<property name="dataSource" ref="dataSource" />
+		<property name="sessionFactory" ref="sessionFactoryMysql" />
+		<property name="dataSource" ref="dataSourceMysql" />
 	</bean>
 	<!-- 定义事务规则 -->
-	<tx:advice id="txAdvice" transaction-manager="transactionManager">
+	<tx:advice id="txAdviceMysql" transaction-manager="transactionManagerMysql">
 		<tx:attributes>
 			<tx:method name="save*" propagation="REQUIRED" />
 			<tx:method name="modify*" propagation="REQUIRED" />
@@ -153,9 +153,9 @@
 	</tx:advice>
 	<!-- 定义事务入口 -->
 	<aop:config>
-		<aop:pointcut id="txPointcut"
+		<aop:pointcut id="txPointcutMysql"
 			expression="execution(* login..service..*.*(..))" />
-		<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut" />
+		<aop:advisor advice-ref="txAdviceMysql" pointcut-ref="txPointcutMysql" />
 	</aop:config>
 
 </beans>

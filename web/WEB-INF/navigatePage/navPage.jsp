@@ -18,7 +18,7 @@
     var countPerPage = parseInt("10");
     var totalPage = parseInt((count + countPerPage - 1) / countPerPage);
     $(function () {
-        var url = '<s:url value="/group-manage/index"/>'+'?'
+        var url = '<s:url value="/nav/navPage.action"/>'+'?'
                 + 'orgName=${orgName}' + '&'
                 + 'categoryName=${categoryName}' + '&'
                 + 'orgRemark=${orgRemark}' + '&'
@@ -26,6 +26,7 @@
                 + 'indexOrder=${indexOrder}' + '&';
         //分页
         $("#group_manage_navPage").navPage({
+            //divId:"show_page",
             url : url,
             count:count,
             currentPage : currentPage,
@@ -42,6 +43,7 @@
 
 <br/>
 <br/>
+<div id="show_page"></div>
 <br/>
 <!-- 分页控制区 -->
 <div id="group_manage_navPage"></div>
