@@ -11,7 +11,7 @@
  */
 // 初始化列表字段点击事件，处理排序
 $.initOrderBy = function(indexOrderKey, indexOrder, url, position) {
-    var tabDiv = $("#" + $(".ui-tabs-selected").children("a").attr("idflag"));
+    var tabDiv = $("#" + $(".ui-tabs-selected").children("a").attr("idflag"));//TODO
 
     if(position != undefined) {
         tabDiv = $(position) ;
@@ -54,7 +54,7 @@ function ajaxForward(url, position, func) {
         loading : true,
         success : function(data){
             if(position == undefined || position == "" || position == null) {
-                $("#" + $(".ui-tabs-selected").children("a").attr("idflag")).html(data);
+                $("#" + $(".ui-tabs-selected").children("a").attr("idflag")).html(data);//TODO
             } else {
                 $(position).html(data);
             }

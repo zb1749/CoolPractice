@@ -31,6 +31,8 @@ public class ParseXml {
         //忽略字段
         xstream.omitField(Product.class, "UpdateFields");
         xstream.omitField(Product.class, "Priority");
+        xstream.omitField(Product.class, "DistStatus");
+        xstream.omitField(Product.class, "PubNewStatus");
         // 变量名称大小写转换
         xstream.aliasField("ProcessId", QueryAutoPlayRsp.class, "processId");
         xstream.aliasField("ResCode", QueryAutoPlayRsp.class, "resCode");
