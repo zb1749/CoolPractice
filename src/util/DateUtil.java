@@ -523,4 +523,8 @@ public class DateUtil {
 		calendar.add(Calendar.DAY_OF_YEAR, days);
 		return format(calendar.getTime(), format);
 	}
+
+	public static String getCurrentMilliSecond(){
+		return new SimpleDateFormat("yyyy-MM-dd HH:mm:ss.SSS") .format(new Date() );
+	}
 }

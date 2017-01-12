@@ -17,6 +17,7 @@ public class RandomAccessFileTest {
     public static void main(String[] args) {
         int startPos = 0;
         File originFile = new File(originPath);
+        File partFile = new File(partFileName);
         int perReadLength = lineLength * 2;
         byte[] perRead;
         RandomAccessFile rFile = null;
@@ -24,7 +25,7 @@ public class RandomAccessFileTest {
         int writeStart = 0;
         try {
             rFile = new RandomAccessFile(originFile, "r");
-            wFile = new RandomAccessFile(partFileName, "rw");
+            wFile = new RandomAccessFile(partFile, "rw");
             for (int j = 0; j < (originFile.length() / perReadLength) + 1; j++) {
                 startPos = perReadLength * j;
                 System.out.println(startPos);
@@ -36,7 +37,7 @@ public class RandomAccessFileTest {
                 if (s > 0) {
                     String read = new String(perRead, "gbk");
                     //如果有中文，gbk编码，一个中文占用2个byte，如果用utf-8，一个中文占用3-4个byte
-                    System.out.println("read length: " + s + " file content length: " + originFile.length() + "string length: " + read.length());
+                    System.out.println("read length: " + s + " ,origin file content length: " + originFile.length() + " ,string length: " + read.length() + " ,part file length now: " + partFile.length());
                     System.out.println(read);
                     String[] lineArr = read.split("0x0A");
                     List<MonthFileLinePojo> pojoList = new ArrayList<MonthFileLinePojo>();
@@ -56,15 +57,15 @@ public class RandomAccessFileTest {
             }
         } catch (IOException e) {
             e.printStackTrace();
-        }finally {
-            if(rFile!=null) {
+        } finally {
+            if (rFile != null) {
                 try {
                     rFile.close();
                 } catch (IOException e) {
                     e.printStackTrace();
                 }
             }
-            if(wFile!=null){
+            if (wFile != null) {
                 try {
                     wFile.close();
                 } catch (IOException e) {
