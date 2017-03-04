@@ -46,7 +46,7 @@ public class FileUtil {
     /**
      * 创建一个输出流
      */
-    private static PrintWriter newWriter(String path, String fileName) {
+    public static PrintWriter newWriter(String path, String fileName) {
         PrintWriter logWriter = null;
         try {
             // 生成文件对象，如果文件不存在，要创建新文件。
@@ -81,7 +81,7 @@ public class FileUtil {
     /**
      * 关闭流
      */
-    private static void closeWriter(PrintWriter logWriter) {
+    public static void closeWriter(PrintWriter logWriter) {
         if (null != logWriter) {
             try {
                 logWriter.close();
