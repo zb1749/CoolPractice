@@ -30,8 +30,8 @@
         <module name="CoolPractice" />
       </profile>
     </annotationProcessing>
-    <bytecodeTargetLevel target="1.9">
-      <module name="CoolPractice" target="1.5" />
+    <bytecodeTargetLevel target="1.8">
+      <module name="CoolPractice" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -1,17 +1,18 @@
 package login.spring_security;
 
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+//import org.springframework.security.core.userdetails.UserDetails;
+//import org.springframework.security.core.userdetails.UserDetailsService;
+//import org.springframework.security.core.userdetails.UsernameNotFoundException;
 
 
 /**
  * Created by Kevin on 2016/10/27.
  */
-public class SecurityUserService implements UserDetailsService {
-    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        return null;
-    }
+public class SecurityUserService {
+//        implements UserDetailsService {
+//    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
+//        return null;
+//    }
 
 //    public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 //        System.out.println("username is " + username);
