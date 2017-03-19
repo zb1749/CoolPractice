@@ -95,4 +95,10 @@
             <result>/WEB-INF/navigatePage/{1}.jsp</result>
         </action>
     </package>
+    <package name="filter" namespace="/filter" extends="struts-default">
+        <!-- 可以作为default入口 -->
+        <action name="*">
+            <result>/WEB-INF/filter/{1}.jsp</result>
+        </action>
+    </package>
 </struts>

@@ -1,22 +1,22 @@
-<%@ page contentType="text/html; charset=GBK" language="java" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title> Ôö¼ÓCookie </title>
+	<title> å¢žåŠ Cookie </title>
 	<meta name="website" content="http://www.sun.com" />
 </head>
 <body>
 <%
 //http://localhost:8080/cookie/addCookie?name=wma
-//Cookie¶ÔÏóÔÚservlet jar°üÖÐ¶¨Òå
-// »ñÈ¡ÇëÇó²ÎÊý
+//Cookieå¯¹è±¡åœ¨servlet jaråŒ…ä¸­å®šä¹‰
+// èŽ·å–è¯·æ±‚å‚æ•°
 String name = request.getParameter("name");
-// ÒÔ»ñÈ¡µ½µÄÇëÇó²ÎÊýÎªÖµ£¬´´½¨Ò»¸öCookie¶ÔÏó
+// ä»¥èŽ·å–åˆ°çš„è¯·æ±‚å‚æ•°ä¸ºå€¼ï¼Œåˆ›å»ºä¸€ä¸ªCookieå¯¹è±¡
 Cookie c = new Cookie("username" , name);
-// ÉèÖÃCookie¶ÔÏóµÄÉú´æÆÚÏÞ
-c.setMaxAge(24 * 3600);//ÎªÊ²Ã´ÉèÖÃÁËÉú´æÖÜÆÚ£¬È»¶øä¯ÀÀÆ÷ÉÏµÄcookie¹ýÆÚÊ±¼ä»¹ÊÇ»á»°ÄØ£¿
-// Ïò¿Í»§¶ËÔö¼ÓCookie¶ÔÏó
+// è®¾ç½®Cookieå¯¹è±¡çš„ç”Ÿå­˜æœŸé™
+c.setMaxAge(24 * 3600);//ä¸ºä»€ä¹ˆè®¾ç½®äº†ç”Ÿå­˜å‘¨æœŸï¼Œç„¶è€Œæµè§ˆå™¨ä¸Šçš„cookieè¿‡æœŸæ—¶é—´è¿˜æ˜¯ä¼šè¯å‘¢ï¼Ÿ
+// å‘å®¢æˆ·ç«¯å¢žåŠ Cookieå¯¹è±¡
 response.addCookie(c);
 %>
 </body>

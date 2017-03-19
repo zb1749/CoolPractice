@@ -1,17 +1,17 @@
-<%@ page contentType="text/html; charset=GBK" language="java" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <!DOCtype html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title> Ñ¡ÔñÎïÆ·¹ºÂò </title>
+	<title> é€‰æ‹©ç‰©å“è´­ä¹° </title>
 	<meta name="website" content="http://www.sun.com" />
 </head>
 <body>
 <form method="post" action="processBuy">
-	Êé¼®£º<input type="checkbox" name="item" value="book"/><br/>
-	µçÄÔ£º<input type="checkbox" name="item" value="computer"/><br/>
-	Æû³µ£º<input type="checkbox" name="item" value="car"/><br/>
-	<input type="submit" value="¹ºÂò"/>
+	ä¹¦ç±ï¼š<input type="checkbox" name="item" value="book"/><br/>
+	ç”µè„‘ï¼š<input type="checkbox" name="item" value="computer"/><br/>
+	æ±½è½¦ï¼š<input type="checkbox" name="item" value="car"/><br/>
+	<input type="submit" value="è´­ä¹°"/>
 </form>
 </body>
 </html>

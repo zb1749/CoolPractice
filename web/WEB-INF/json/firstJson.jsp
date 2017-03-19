@@ -1,18 +1,18 @@
-<%@ page contentType="text/html; charset=GBK" language="java" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <%@ taglib prefix="s" uri="/struts-tags" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <%@include file="/commons/commonlib.jsp" %>
 <head>
-    <title>Ê¹ÓÃJSON²å¼þ</title>
+    <title>ä½¿ç”¨JSONæ’ä»¶</title>
     <script type="text/javascript">
         function gotClick() {
             $("#show").hide();
-            // Ö¸¶¨ÏòJSONExample·¢ËÍÇëÇó£¬½«idÎªform1µÄ±íµ¥Ëù°üº¬µÄ±íµ¥¿Ø¼þ×ª»»ÎªÇëÇó²ÎÊý
+            // æŒ‡å®šå‘JSONExampleå‘é€è¯·æ±‚ï¼Œå°†idä¸ºform1çš„è¡¨å•æ‰€åŒ…å«çš„è¡¨å•æŽ§ä»¶è½¬æ¢ä¸ºè¯·æ±‚å‚æ•°
             $.post("JSONExample",
                     $("#form1").serializeArray(),
-                    // Ö¸¶¨»Øµ÷º¯Êý
+                    // æŒ‡å®šå›žè°ƒå‡½æ•°
                     function (data, statusText) {
                         $("#show").height(80)
                                 .width(240)
@@ -22,14 +22,14 @@
                                 .css("color", "#ff0000")
                                 .css("padding", "20px")
                                 .empty();
-                        // ±éÀúJavaScript¶ÔÏóµÄ¸÷ÊôÐÔ
+                        // éåŽ†JavaScriptå¯¹è±¡çš„å„å±žæ€§
                         for (var propName in data) {
                             $("#show").append(propName + "-->"
                                     + data[propName] + "<br/>");
                         }
                         $("#show").show(600);
                     },
-                    // Ö¸¶¨·þÎñÆ÷ÏìÓ¦ÎªJSONÊý¾Ý
+                    // æŒ‡å®šæœåŠ¡å™¨å“åº”ä¸ºJSONæ•°æ®
                     "json");
         }
     </script>
@@ -41,7 +41,7 @@
     <s:textfield name="field3" label="Field 3"/>
     <tr>
         <td colspan="2">
-            <input type="button" value="Ìá½»" onclick="gotClick();"/>
+            <input type="button" value="æäº¤" onclick="gotClick();"/>
         </td>
     </tr>
 </s:form>

@@ -1,31 +1,31 @@
-<%@ page contentType="text/html; charset=GBK" language="java" errorPage="" %>
+<%@ page contentType="text/html; charset=utf-8" language="java" errorPage="" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
 	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
-	<title> ÖÐÎÄCookie </title>
+	<title> ä¸­æ–‡Cookie </title>
 	<meta name="website" content="http://www.sun.com" />
 </head>
 <body>
 <%
-// ÒÔ±àÂëºóµÄ×Ö·û´®ÎªÖµ£¬´´½¨Ò»¸öCookie¶ÔÏó
+// ä»¥ç¼–ç åŽçš„å­—ç¬¦ä¸²ä¸ºå€¼ï¼Œåˆ›å»ºä¸€ä¸ªCookieå¯¹è±¡
 Cookie c = new Cookie("cnName" 
-	, java.net.URLEncoder.encode("ËïÎò¿Õ" , "gbk"));
-// ÉèÖÃCookie¶ÔÏóµÄÉú´æÆÚÏÞ
+	, java.net.URLEncoder.encode("å­™æ‚Ÿç©º" , "gbk"));
+// è®¾ç½®Cookieå¯¹è±¡çš„ç”Ÿå­˜æœŸé™
 c.setMaxAge(24 * 3600);
-// Ïò¿Í»§¶ËÔö¼ÓCookie¶ÔÏó
+// å‘å®¢æˆ·ç«¯å¢žåŠ Cookieå¯¹è±¡
 response.addCookie(c);
 
-// »ñÈ¡±¾Õ¾ÔÚ¿Í»§¶ËÉÏ±£ÁôµÄËùÓÐCookie
+// èŽ·å–æœ¬ç«™åœ¨å®¢æˆ·ç«¯ä¸Šä¿ç•™çš„æ‰€æœ‰Cookie
 Cookie[] cookies = request.getCookies();
-// ±éÀú¿Í»§¶ËÉÏµÄÃ¿¸öCookie
+// éåŽ†å®¢æˆ·ç«¯ä¸Šçš„æ¯ä¸ªCookie
 for (Cookie cookie : cookies)
 {
-	// Èç¹ûCookieµÄÃûÎªusername£¬±íÃ÷¸ÃCookieÊÇÐèÒª·ÃÎÊµÄCookie
+	// å¦‚æžœCookieçš„åä¸ºusernameï¼Œè¡¨æ˜Žè¯¥Cookieæ˜¯éœ€è¦è®¿é—®çš„Cookie
 	if(cookie.getName().equals("cnName"))
 	{
 		out.print(cookie.getName()+" : ");
-		//Ê¹ÓÃjava.util.URLDecoder¶ÔCookieÖµ½øÐÐ½âÂë
+		//ä½¿ç”¨java.util.URLDecoderå¯¹Cookieå€¼è¿›è¡Œè§£ç 
 		out.println(java.net.URLDecoder
 			.decode(cookie.getValue()));
 	}else{
