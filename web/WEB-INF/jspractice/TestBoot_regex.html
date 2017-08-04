@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+</head>
+<script>
+    $(function () {
+        var url = "/items/queryItems";
+        var b = $("#out1").html("url: " + url);
+        var b = $("#out1").html("after replace regex: " + url.replace(/\//g,""));
+        //真是不写不知道啊，一切相当然的东西，都是自已为是！
+        //js正则表达式不要用单引号或者双引号括起来，要以两个斜线//括起来，g代表全部匹配都算
+        //alert(b);
+    });
+</script>
+<body>
+
+<div id="out1"></div>
+<div id="out2"></div>
+
+
+</body>
+</html>
