@@ -370,7 +370,6 @@ public class HttpUtil {
             }
 
             if (null == tmpBuf)
-            // if (null == strRsp)
             {
                 log.info("----------------getResponse null--------------");
                 tmpBuf = new byte[0];
