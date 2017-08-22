@@ -97,6 +97,9 @@ public class NIOServer {
         System.out.println("服务端收到信息：" + msg);
         ByteBuffer outBuffer = ByteBuffer.wrap(msg.getBytes());
         channel.write(outBuffer);// 将消息回送给客户端
+
+        buffer.clear();
+        buffer.put((byte)'a');
     }
 
     /**
