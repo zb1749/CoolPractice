@@ -98,8 +98,6 @@ public class NIOServer {
         ByteBuffer outBuffer = ByteBuffer.wrap(msg.getBytes());
         channel.write(outBuffer);// 将消息回送给客户端
 
-        buffer.clear();
-        buffer.put((byte)'a');
     }
 
     /**
