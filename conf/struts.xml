@@ -38,9 +38,9 @@
             <!-- 配置Struts 2默认的视图页面 -->
             <result>/WEB-INF/upload/succ.jsp</result>
         </action>
-        <action name="*">
-            <result>/WEB-INF/upload/{1}.jsp</result>
-        </action>
+        <!--<action name="*">-->
+            <!--<result>/WEB-INF/upload/{1}.jsp</result>-->
+        <!--</action>-->
     </package>
     <package name="cookie" namespace="/cookie" extends="struts-default">
         <!-- 可以作为default入口 -->

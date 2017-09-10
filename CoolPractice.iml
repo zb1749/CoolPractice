@@ -25,11 +25,11 @@
     <facet type="Spring" name="Spring">
       <configuration>
         <fileset id="fileset" name="Spring Application Context" removed="false">
-          <file>file://$MODULE_DIR$/src/spring/propertiesToBean/applicationContext.xml</file>
           <file>file://$MODULE_DIR$/src/multithread/threadpool/applicationContext-properties.xml</file>
-          <file>file://$MODULE_DIR$/conf/spring/hibernate-spring-config.xml</file>
           <file>file://$MODULE_DIR$/conf/spring/spring-security.xml</file>
           <file>file://$MODULE_DIR$/conf/spring/hibernate-mysql-spring-config.xml</file>
+          <file>file://$MODULE_DIR$/conf/spring/applicationContext.xml</file>
+          <file>file://$MODULE_DIR$/conf/spring/hibernate-oracle-spring-config.xml</file>
         </fileset>
       </configuration>
     </facet>

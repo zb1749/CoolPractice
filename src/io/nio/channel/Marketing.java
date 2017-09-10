@@ -47,7 +47,7 @@ public class Marketing {
     private static Random rand = new Random(); // Pick one, make a buffer to hold it and the suffix, load it with
 
     // the byte equivalent of the strings (will not work properly for
-// non-Latin characters), then flip the loaded buffer so it's ready // to be drained
+    // non-Latin characters), then flip the loaded buffer so it's ready // to be drained
     private static ByteBuffer pickRandom(String[] strings, String suffix) throws Exception {
         String string = strings[rand.nextInt(strings.length)];
         int total = string.length() + suffix.length();
