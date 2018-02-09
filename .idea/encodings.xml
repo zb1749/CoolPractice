@@ -17,8 +17,8 @@
     <file url="file://$PROJECT_DIR$/src/io/nio/timeServer/TimeClientHandle.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/io/nio/timeServer/TimeServer.java" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/src/jdk/collection/different/ListDifferenceSet.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/struts2/action/JSONExample.java" charset="UTF-8" />
-    <file url="file://$PROJECT_DIR$/src/struts2/action/UploadAction.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/struts2/action/JSONExample.java" charset="GBK" />
+    <file url="file://$PROJECT_DIR$/src/struts2/action/UploadAction.java" charset="GBK" />
     <file url="file://$PROJECT_DIR$/src/util/maven_readme.xml" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web/WEB-INF/cookie/addCookie.jsp" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/web/WEB-INF/cookie/cnCookie.jsp" charset="UTF-8" />

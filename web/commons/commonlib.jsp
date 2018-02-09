@@ -12,6 +12,7 @@
 <script type="text/javascript" src='<s:url value="/commons/jqueryLib/BoxMsg.js"/>'></script>
 <script type="text/javascript" src='<s:url value="/commons/jqueryLib/ajaxNav.js"/>'></script>
 <script type="text/javascript" src='<s:url value="/commons/jqueryLib/js.cookies.js"/>'></script>
+<script type="text/javascript" src='<s:url value="/commons/jqueryLib/tabSwitch.js"/>'></script>
 
 <link rel="stylesheet" type="text/css" href="<s:url value='/commons/jquery-ui/jquery-ui.css'/>"/>
 <link rel="stylesheet" type="text/css" href="<s:url value='/commons/css/Buttons.css'/>"/>
