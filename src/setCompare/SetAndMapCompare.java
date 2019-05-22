@@ -15,7 +15,7 @@ public class SetAndMapCompare {
         ReWriteHashCodeAndEqualsPojo p2 = new ReWriteHashCodeAndEqualsPojo("1", "Lucy", 30);
         hashMap1.put(p1, 1);
         hashMap1.put(p2, 2);
-        System.out.println("HashMap");
+        System.out.println("ReWriteHashCodeAndEquals HashMap");
         System.out.println(hashMap1);
         //{Person [name=Jay, age=30]=2}
         //很奇怪，hashmap里的key对象需要重写的equals方法，并且，如果key比较相等，则不更新key，更新value。
@@ -26,17 +26,17 @@ public class SetAndMapCompare {
         Set<ReWriteHashCodeAndEqualsPojo> hashSet1 = new HashSet<ReWriteHashCodeAndEqualsPojo>();
         hashSet1.add(p1);
         hashSet1.add(p2);
-        System.out.println("HashSet");
+        System.out.println("ReWriteHashCodeAndEquals HashSet");
         System.out.println(hashSet1);
         //[Person [name=Jay, age=30]]
-        //看源码就知道了，HashSet.add方法只是封装了HashMap.put
+
 
         Map<ReWriteEqualsOnlyPojo, Integer> hashMap2 = new HashMap<ReWriteEqualsOnlyPojo, Integer>();
         ReWriteEqualsOnlyPojo pe1 = new ReWriteEqualsOnlyPojo("1", "Jay", 30);
         ReWriteEqualsOnlyPojo pe2 = new ReWriteEqualsOnlyPojo("1", "Lucy", 30);
         hashMap2.put(pe1, 1);
         hashMap2.put(pe2, 2);
-        System.out.println("HashMap");
+        System.out.println("ReWriteEqualsOnly HashMap");
         System.out.println(hashMap1);
         //{Person [name=Jay, age=30]=2}
         //所以，可以看出HashMap的key去重判断，只需要重写equals方法就可以了
@@ -44,10 +44,20 @@ public class SetAndMapCompare {
         Set<ReWriteEqualsOnlyPojo> hashSet2 = new HashSet<ReWriteEqualsOnlyPojo>();
         hashSet2.add(pe1);
         hashSet2.add(pe2);
-        System.out.println("HashSet");
+        System.out.println("ReWriteEqualsOnly HashSet");
         System.out.println(hashSet2);
         //[Person [name=Jay, age=30], Person [name=Lucy, age=30]]
         //奇怪不。明明只是封装了HashMap.put，结果HashSet不重写hashCode无法去重，而HashMap却可以=。=
+        /**
+         public V put(K key, V value) {
+         return putVal(hash(key), key, value, false, true);
+         }
+
+         static final int hash(Object key) {
+         int h;
+         return (key == null) ? 0 : (h = key.hashCode()) ^ (h >>> 16);
+         }
+         */
 
         Map<ReWriteHashCodeAndEqualsPojo, Integer> treeMap1 = new TreeMap<ReWriteHashCodeAndEqualsPojo, Integer>();
         try {
@@ -72,7 +82,7 @@ public class SetAndMapCompare {
         //TreeMap 底层为数据结构为红黑树，默认为升序排序方式。
         //整个红黑树的结构为：根节点值大于所有左子树节点值，小于所有右子树节点值，由此整个红黑树以深度优先搜索方式遍历一遍为从小到大的升序排列。
 
-        //TreeMap key值不可以为null，但是并不绝对
+        //TreeMap key值可以为null，但是需要传入Comparator，并且compare方法内做null判断，否则会抛错！
         //1)当key未实现Comparator接口时，key不可以为null，否则抛NullPointerException异常。(源码直接check，然后手动抛的异常。)
         //2)当key实现了Comparator接口时，若实现类的compare未对null情况进行判断，则加入null值会抛NullPointerException异常。
 
